@@ -1,0 +1,13 @@
+.Footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #F9F6F4;
+    text-align: center;
+}
+
+.Footer-text {
+    font-size: 20px;
+    color:  #705845;
+    font-family: 'Lato', sans-serif;
+}

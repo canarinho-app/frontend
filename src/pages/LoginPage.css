@@ -1,0 +1,28 @@
+.Login-page {
+    position: relative;
+    min-height: 100vh;
+    background-color: #705845;
+    text-align: center;
+  }
+
+  .Canarinho-logo {
+    padding-top: 5vmin;
+    height: 50vmin;
+    pointer-events: none;
+  }
+
+  .Login-title {
+    color: #fff;
+    font-size: 8vmin;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .Login-input-box {
+      flex-direction: row;
+      vertical-align: middle;
+  }
+
+  .Login-link {
+      color: #F3804B;
+  }
