@@ -32,3 +32,18 @@
     padding-top: 65px;
     padding-left: 647px;
 }
+
+.Profile-photo {
+    position: absolute;
+    width: 191px;
+    height: 191px;
+    padding-top: 197px;
+    padding-left: 845px;
+}
+
+.footer {
+    clear: both;
+    position: relative;
+    height: 40px;
+    margin-top: -40px;
+}
