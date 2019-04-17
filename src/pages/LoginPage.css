@@ -36,11 +36,34 @@
 
 .login-input:focus {
   background-color: #705845;
-  border-color: #fff;
+  border-color: #F3804B;
   color: #fff;
+  box-shadow: none;
+}
+
+.login-input::placeholder {
+  color: #CCCCCC !important;
+}
+
+.login-button {
+  background-color: #F3804B;
+  border-color: #F3804B;
+}
+
+.login-button:hover {
+  background-color: #F3804B;
+  border-color: #F3804B;
+}
+
+.login-button:focus {
+  box-shadow: none;
 }
 
 .login-link {
-  padding-top: 4vmin;
+  font-size: 2vmin;
+  font-weight: bold;
+  margin-top: 4vmin;
   color: #F3804B;
+  text-decoration: none !important;
+  cursor: pointer;
 }

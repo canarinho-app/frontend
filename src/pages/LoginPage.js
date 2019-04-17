@@ -18,17 +18,19 @@ const LoginPage = () => {
       <Form>
         <Row className="justify-content-md-center no-margin login-input-box">
           <Col xs lg="2">
-            <Form.Control className="login-input" size="lg" placeholder="Username" />
+            <Form.Control className="login-input" size="lg" placeholder="Username"/>
           </Col>
           <Col xs lg="2">
-            <Form.Control className="login-input" size="lg" placeholder="Password" />
+            <Form.Control className="login-input" size="lg" placeholder="Password" type="password"/>
           </Col>
           <Col xs lg="1">
-            <Button variant="primary" size="lg">Login</Button>
+            <Button className="login-button" variant="primary" size="lg">Login</Button>
           </Col>
         </Row>
       </Form>
-      <div className="login-link"> Sign up for Canarinho </div>
+      <div href="" className="login-link">
+        Sign up for Canarinho
+      </div>
       <Footer/>
     </div>
   );
