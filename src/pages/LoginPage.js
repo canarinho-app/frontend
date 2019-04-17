@@ -2,38 +2,33 @@ import React from "react";
 import './LoginPage.css';
 import Footer from './../components/footer/Footer';
 import canarinho from './../assets/images/canarinho.svg'
-import TextField from '@material-ui/core/TextField';
-import Button from "@material-ui/core/Button";
+import { Button, Image, Form, Row, Col } from 'react-bootstrap';
 
 const LoginPage = () => {
   return(
-    <div className="Login-page">
-      <img src={canarinho} className="Canarinho-logo" alt="logo" />
-      <div className="Login-title">Canarinho</div>
-      <div className="Login-input-box">
-        <TextField
-            id="outlined-email-input"
-            label="Email"
-            type="email"
-            name="email"
-            autoComplete="email"
-            margin="normal"
-            variant="outlined"
-          />
-        <TextField
-            id="outlined-password-input"
-            label="Password"
-            className="Login-input"
-            type="password"
-            autoComplete="current-password"
-            margin="normal"
-            variant="outlined"
-          />
-        <Button variant="contained">
-          Login
-        </Button>
-      </div>
-      <div className="Login-link"> Sign up for Canarinho </div>
+    <div className="login-page">
+      <Row className="justify-content-md-center no-margin">
+        <Col md="auto">
+          <div className="login-canarinho-logo">
+            <Image src={canarinho} alt="logo" fluid/>
+          </div>
+        </Col>
+      </Row>
+      <div className="login-title">Canarinho</div>
+      <Form>
+        <Row className="justify-content-md-center no-margin login-input-box">
+          <Col xs lg="2">
+            <Form.Control className="login-input" size="lg" placeholder="Username" />
+          </Col>
+          <Col xs lg="2">
+            <Form.Control className="login-input" size="lg" placeholder="Password" />
+          </Col>
+          <Col xs lg="1">
+            <Button variant="primary" size="lg">Login</Button>
+          </Col>
+        </Row>
+      </Form>
+      <div className="login-link"> Sign up for Canarinho </div>
       <Footer/>
     </div>
   );
