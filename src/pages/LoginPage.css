@@ -1,28 +1,69 @@
-.Login-page {
-    position: relative;
-    min-height: 100vh;
-    background-color: #705845;
-    text-align: center;
-  }
+.no-margin {
+  margin: 0 !important;
+}
 
-  .Canarinho-logo {
-    padding-top: 5vmin;
-    height: 50vmin;
-    pointer-events: none;
-  }
+.login-page {
+  position: relative;
+  min-height: 100vmin;
+  background-color: #705845;
+  text-align: center;
+}
 
-  .Login-title {
-    color: #fff;
-    font-size: 8vmin;
-    font-weight: bold;
-    font-family: 'Lato', sans-serif;
-  }
+.login-canarinho-logo {
+  padding-top: 5vmin;
+  height: 55vmin;
+  width: 50vmin;
+  pointer-events: none;
+  text-align: center;
+}
 
-  .Login-input-box {
-      flex-direction: row;
-      vertical-align: middle;
-  }
+.login-title {
+  color: #fff;
+  font-size: 8vmin;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+}
 
-  .Login-link {
-      color: #F3804B;
-  }
+.login-input-box {
+  padding-top: 8vmin;
+}
+
+.login-input {
+  background-color: #705845;
+  border-color: #fff;
+  color: #fff;
+}
+
+.login-input:focus {
+  background-color: #705845;
+  border-color: #F3804B;
+  color: #fff;
+  box-shadow: none;
+}
+
+.login-input::placeholder {
+  color: #CCCCCC !important;
+}
+
+.login-button {
+  background-color: #F3804B;
+  border-color: #F3804B;
+}
+
+.login-button:hover {
+  background-color: #F3804B;
+  border-color: #F3804B;
+}
+
+.login-button:focus {
+  box-shadow: none;
+}
+
+.login-link {
+  font-size: 2vmin;
+  font-weight: bold;
+  margin-top: 4vmin;
+  color: #F3804B;
+  text-decoration: none !important;
+  cursor: pointer;
+}
