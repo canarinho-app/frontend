@@ -1,3 +1,49 @@
 .menu-area{
     background-color: #705845;
+    width: 1440px;
+    height: 60px;
+}
+
+.logo-navbar {
+    width: 49px;
+    height: 49px;
+}
+
+.profile-photo-navbar {
+    width: 36px;
+    height: 36px;
+}
+
+.home-navbar {
+    color: #FFFFFF;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 62px;
+    width: 100px;
+    text-align: center;
+}
+
+.notification-navbar {
+    color: #FFFFFF;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 62px;
+    width: 121px;
+    text-align: center;
+}
+
+.search-navbar {
+    color: #FFFFFF;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 62px;
+    width: 61px;
+    text-align: left;
+}
+
+.fa-search {
+    color: #FFFFFF;
 }
