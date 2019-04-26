@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
-import Navbar from '../navbar/Navbar';
-
 import { BrowserRouter } from 'react-router-dom';
 
+import Navbar from '../navbar/Navbar';
+import Routes from '../../Routes';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {isLoggedIn: false};
+  }
+
   render() {
+    const isLoggedIn = this.state.isLoggedIn;
     return (
       <BrowserRouter>
+          <Routes/>
         <div className="app">
-          <Navbar/>
+          {isLoggedIn && (<Navbar/>) }
         </div>
       </BrowserRouter>
     );

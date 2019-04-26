@@ -28,9 +28,9 @@ const LoginPage = () => {
           </Col>
         </Row>
       </Form>
-      <div href="" className="login-link">
+      <a href="/signup" className="login-link">
         Sign up for Canarinho
-      </div>
+      </a>
       <Footer/>
     </div>
   );
