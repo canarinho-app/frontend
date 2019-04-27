@@ -7,43 +7,56 @@
 .logo-navbar {
     width: 49px;
     height: 49px;
+    margin-top: 5px;
+    margin-left: 168px;
 }
 
 .profile-photo-navbar {
-    width: 36px;
-    height: 36px;
+    width: 45px;
+    height: 45px;
+    margin-top: 5px;
+    margin-left: 21px;
+    text-align: center;
 }
 
 .home-navbar {
     color: #FFFFFF;
+    background-color: #705845;
     font-family: Lato;
     font-size: 18px;
     font-weight: 400;
-    line-height: 62px;
     width: 100px;
+    margin-top: 9px;
+    margin-left: 240px;
     text-align: center;
 }
 
 .notification-navbar {
     color: #FFFFFF;
+    background-color: #705845;
     font-family: Lato;
     font-size: 18px;
     font-weight: 400;
-    line-height: 62px;
     width: 121px;
+    margin-top: 9px;
     text-align: center;
 }
 
 .search-navbar {
     color: #FFFFFF;
+    background-color: #705845;
     font-family: Lato;
     font-size: 18px;
     font-weight: 400;
-    line-height: 62px;
     width: 61px;
-    text-align: left;
+    margin-top: 7px;
+    margin-left: 15px;
+    text-align: center;
+    
 }
 
 .fa-search {
     color: #FFFFFF;
+    margin-top: 22px;
+    margin-left: 238px;
 }
