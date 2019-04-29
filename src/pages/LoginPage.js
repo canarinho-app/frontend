@@ -30,13 +30,8 @@ const LoginPage = () => {
       </Form>
       <a href="/signup" className="login-link">
         Sign up for Canarinho
-<<<<<<< HEAD
       </a>
       <Footer/>
-=======
-      </div>
-      <Footer />
->>>>>>> integration
     </div>
   );
 }
