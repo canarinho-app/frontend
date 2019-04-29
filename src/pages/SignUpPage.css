@@ -1,29 +1,31 @@
+.signup-page {
+    position: relative;
+    min-height: 100vmin;
+    text-align: center;
+  }
+
 .logo-side {
     background-color: #705845;
-    width: 440px;
-    height: 989px;
+    min-height: 100vmin;
 }
 
 .canarinho-logo {
-    width: 350px;
-    height: 300px;
-    padding-top: 333px;
-    padding-left: 65px;
+    width: 24vw;
+    height: 24vh;
+    padding-top: 24vh;
 }
 
 .signup-logo-title {
     color: #FFFFFF;
-    font-family: Lato;
-    font-size: 60px;
+    font-family: 'Lato', sans-serif;
+    font-size: 5vw;
     font-weight: 700;
-    line-height: 50px;
-    width: 440px;
 }
 
 .signup-text {
     color: #F3804B;
-    font-family: Lato;
-    font-size: 60px;
+    font-family: 'Lato', sans-serif;
+    font-size: 50px;
     font-weight: 700;
     line-height: 50px;
     padding-top: 65px;
@@ -32,7 +34,7 @@
 .profile-photo {
     width: 191px;
     height: 191px;
-    margin-top: 70px;
+    margin-top: 40px;
 }
 
 .select-photo {
@@ -45,7 +47,7 @@
 }
 
 .signup-input-box {
-    padding-top: 3vmin;
+    padding-top: 2vmin;
     display: block;
     text-align: center;
   }
@@ -76,7 +78,7 @@
     background-color: #F3804B;
     border-color: #F3804B;
     width: 159.58px;
-    margin-top: 4vmin;
+    margin-top: 1vmin;
 }
 
 .signup-button:hover {
@@ -88,10 +90,6 @@
     box-shadow: none;
 }
 
-
-.footer {
-    clear: both;
-    position: relative;
-    height: 40px;
-    margin-top: -40px;
+.form-box {
+  
 }
