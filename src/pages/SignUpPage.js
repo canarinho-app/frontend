@@ -5,7 +5,7 @@ import { Row, Col, Image, Form, Button } from 'react-bootstrap';
 import Footer from './../components/footer/Footer'
 import canarinho from './../assets/images/canarinho.svg';
 import profilePhoto from './../assets/images/cutmypic.png';
-import { Api } from './../service/Api.js';
+import { Api } from './../service/Api.js'
 
 class SignUpPage extends Component{
     constructor(props) {
