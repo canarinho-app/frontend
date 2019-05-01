@@ -9,9 +9,11 @@
     background-color: #fff;
     margin-top: 10vh;
     min-height: 90vh;
-    width: 60vw;
-    border-top-left-radius: 1%;
-    border-top-right-radius: 1%;
+    width: 50vw;
+    min-width: 630px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-bottom: 0.5vh;
 }
 
 .profile-info {
@@ -42,6 +44,7 @@
     text-align: start;
     padding: 0 !important;
     font-size: 2vh;
+    font-weight: bold;
 }
 
 .no-padding {
@@ -50,27 +53,18 @@
 
 .displayname-text {
     font-size: 2.5vh;
-    font-weight: bold;
 }
 
 .username-text {
     color: #657786;
 }
 
-.fol-counter {
-    padding-right: 0% !important;
-}
-
 .fol-counter-label {
-    padding-left: 0 !important;
-    margin-left: -0.5vw !important;
     color: #657786;
+    padding-right: 0.5vh;
 }
 
 .fol-counter-number {
     font-weight: bold;
-}
-
-.fol-counter-number-margin {
-    margin-left: -1.5vw !important;
+    padding-right: 0.5vh;
 }

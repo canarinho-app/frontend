@@ -16,7 +16,7 @@ button:focus {
     font-weight: 400;
     width: 100px;
     margin-top: 9px;
-    margin-left: 18vw;
+    margin-left: 23vw;
     text-align: center;
 }
 
@@ -42,7 +42,7 @@ button:focus {
     color: #FFFFFF;
     margin-top: 20px;
     position: absolute;
-    left: 69vw;
+    left: 66vw;
 }
 
 .search-navbar {
@@ -54,12 +54,12 @@ button:focus {
     width: 61px;
     margin-top: 7px;
     position: absolute;
-    left: 71vw;
+    left: 67vw;
 }
 
 .profile-photo-navbar {
     width: 5vh;
     margin-top: 5px;
     position: absolute;
-    left: 77vw;
+    left: 72.5vw;
 }

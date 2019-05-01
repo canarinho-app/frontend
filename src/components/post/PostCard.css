@@ -1,0 +1,50 @@
+.postcard-box {
+    background-color: #EEEEEE !important;
+    height: 18vh;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    margin-bottom: 1vh;
+    border-radius: 5px;
+}
+
+.postcard-content-box {
+    padding: 1vh;
+}
+
+.postcard-identifier {
+    height: 2vh;
+}
+
+.postcard-content {
+    padding: 2vh 0;
+    height: 11vh;
+    font-size: 2.5vh;
+    text-align: start !important;
+}
+
+.postcard-footer {
+    height: 5vh;
+    text-align: start !important;
+}
+
+.postcard-profile-photo {
+    padding-top: 4vh;
+    width: 10vh;
+}
+
+.postcard-displayname{
+    font-size: 2.5vh;
+    font-weight: bold;
+    padding-right: 1vh;
+}
+
+.postcard-username {
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: #657786;
+}
+
+.postcard-footer-counter {
+    padding-left: 0;
+    font-size: 2vh;
+}
