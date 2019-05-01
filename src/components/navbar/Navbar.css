@@ -16,7 +16,7 @@ button:focus {
     font-weight: 400;
     width: 100px;
     margin-top: 9px;
-    margin-left: 240px;
+    margin-left: 18vw;
     text-align: center;
 }
 
@@ -32,18 +32,17 @@ button:focus {
 }
 
 .logo-navbar {
-    width: 49px;
-    height: 49px;
+    width: 5vh;
     margin-top: 5px;
     position: absolute;
-    left:50%;
+    left: 50vw;
 }
 
 .fa-search {
     color: #FFFFFF;
-    margin-top: 21px;
+    margin-top: 20px;
     position: absolute;
-    left: 74%;
+    left: 69vw;
 }
 
 .search-navbar {
@@ -55,13 +54,12 @@ button:focus {
     width: 61px;
     margin-top: 7px;
     position: absolute;
-    left: 75%;
+    left: 71vw;
 }
 
 .profile-photo-navbar {
-    width: 45px;
-    height: 45px;
+    width: 5vh;
     margin-top: 5px;
     position: absolute;
-    left: 80%;
+    left: 77vw;
 }
