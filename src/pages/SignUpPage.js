@@ -72,7 +72,7 @@ class SignUpPage extends Component{
                                 <Form.Control className="signup-input" size="lg" placeholder="Repeat your password" type="password" onChange={this.handleInputChange("passwordRep")}/>
     
     
-                                <Button className="signup-button" variant="primary" size="lg" onClick={this.submit}>Sign up</Button>
+                                <Button className="signup-button" variant="primary" size="lg" onClick={this.submit} href="/">Sign up</Button>
                             </Row>
                         </Form>
                     </Col>

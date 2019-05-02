@@ -11,13 +11,19 @@ class App extends Component {
     this.state = {isLoggedIn: false};
   }
 
+  setIsLoggedIn(res) {
+    if(res !== 400) {
+      this.setState({isLoggedIn: true});
+    }
+  }
+
   render() {
     const isLoggedIn = this.state.isLoggedIn;
     return (
       <BrowserRouter>
           <Routes/>
         <div className="app">
-          {isLoggedIn ? (<Navbar/>) : (<LoginPage/>)}
+          {/* {isLoggedIn && (<Navbar/>)} */}
         </div>
       </BrowserRouter>
     );

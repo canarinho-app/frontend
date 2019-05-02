@@ -11,7 +11,7 @@ class LoginPage extends Component{
 
   state = {
     email: '',
-    password: ''
+    password: '',
   }
 
   handleChangeEmail = event => {
@@ -57,7 +57,8 @@ render() {
             <Form.Control className="login-input" size="lg" placeholder="Password" type="password" onChange={this.handleChangePassword} />
           </Col>
           <Col xs lg="1">
-            <Button className="login-button" variant="primary" size="lg" type="submit">Login</Button>
+            <Button className="login-button" variant="primary" size="lg" type="submit" 
+            href="/home">Login</Button>
           </Col>
         </Row>
       </Form>
