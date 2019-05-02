@@ -1,0 +1,67 @@
+.menu-area{
+    background-color: #705845;
+    height: 60px;
+}
+
+button:focus {     
+    outline: 0;
+    box-shadow: none!important; 
+}
+
+.home-navbar {
+    color: #FFFFFF;
+    background-color: #705845;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 400;
+    width: 100px;
+    margin-top: 9px;
+    margin-left: 240px;
+    text-align: center;
+}
+
+.notification-navbar {
+    color: #FFFFFF;
+    background-color: #705845;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 400;
+    width: 121px;
+    margin-top: 9px;
+    text-align: center;
+}
+
+.logo-navbar {
+    width: 49px;
+    height: 49px;
+    margin-top: 5px;
+    position: absolute;
+    left:50%;
+}
+
+.fa-search {
+    color: #FFFFFF;
+    margin-top: 21px;
+    position: absolute;
+    left: 74%;
+}
+
+.search-navbar {
+    color: #FFFFFF;
+    background-color: #705845;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 400;
+    width: 61px;
+    margin-top: 7px;
+    position: absolute;
+    left: 75%;
+}
+
+.profile-photo-navbar {
+    width: 45px;
+    height: 45px;
+    margin-top: 5px;
+    position: absolute;
+    left: 80%;
+}
