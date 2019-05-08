@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 import './SignUpPage.css';
 import './LoginPage.css';
 import { Row, Col, Image, Form, Button } from 'react-bootstrap';
@@ -15,7 +16,8 @@ class SignUpPage extends Component{
             username: "",
             email: "",
             password: "",
-            passwordRep: ""
+            passwordRep: "",
+            isAuth: false
         }
     }
 
@@ -36,10 +38,19 @@ class SignUpPage extends Component{
             email: this.state.email,
             password: this.state.password
         }
-        await Api.post('user', user);
+        await Api.post('user', user)
+            .then((res) => {
+                if(res.status === 201) {
+                    this.setState({ isAuth: true });
+                }
+            })
+            .catch((error) => {
+                console.log('error: ' + error);
+            });
     }
 
     render() {
+
         return (
             <div className="signup-page">
                 <Row>
@@ -72,7 +83,8 @@ class SignUpPage extends Component{
                                 <Form.Control className="signup-input" size="lg" placeholder="Repeat your password" type="password" onChange={this.handleInputChange("passwordRep")}/>
     
     
-                                <Button className="signup-button" variant="primary" size="lg" onClick={this.submit} href="/">Sign up</Button>
+                                <Button className="signup-button" variant="primary" size="lg" onClick={this.submit}>Sign up</Button>
+                                {this.state.isAuth && <Redirect to="/"/>}
                             </Row>
                         </Form>
                     </Col>
@@ -80,6 +92,7 @@ class SignUpPage extends Component{
                 <Footer />
             </div>
         );
+
     }
 }
 
