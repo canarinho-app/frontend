@@ -7,9 +7,9 @@ import SignupPage from './pages/SignUpPage';
 
 export default props => (
     <Switch>
-        <Route exact path='/' component={LoginPage}/>
+        <Route exact path='/login' component={LoginPage}/>
         <Route path='/home' component={HomePage}/>
         <Route path='/signup' component={SignupPage}/>
-        <Redirect from='*' to='/'/>
+        <Redirect from='*' to='/login'/>
     </Switch>
 );

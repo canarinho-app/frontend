@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './HomePage.css';
 
 import Navbar from '../components/navbar/Navbar';
 
-const HomePage = (props) => {
+class HomePage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: props.isLoggedIn
+        }
+    }
+    
+    // handleIsLoggedIn(props) {
+    //     this.setState({ isLoggedIn: props.isLoggedIn });
+    // }
 
-    return(
-        <div>
-            <Navbar/>
-        </div>
-    );
+    render(props) {
+        return( 
+            <div>
+                {this.state.isLoggedIn && (
+
+                    <Navbar/>    
+                )}
+            </div>
+
+        );
+    }
 } 
 
 export default HomePage;

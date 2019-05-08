@@ -1,9 +1,11 @@
 import React,{Component} from "react";
+import Home from './HomePage';
 import './LoginPage.css';
 import Footer from './../components/footer/Footer';
 import canarinho from './../assets/images/canarinho.svg'
 import axios from 'axios'
 import { Button, Image, Form, Row, Col } from 'react-bootstrap';
+import { Redirect } from 'react-router';
 
 
 
@@ -12,10 +14,11 @@ class LoginPage extends Component{
   state = {
     email: '',
     password: '',
+    isLoggedIn: false
   }
 
   handleChangeEmail = event => {
-    console.log(event.target.value)
+    // console.log(event.target.value)
     this.setState({email: event.target.value})
   }
 
@@ -34,6 +37,11 @@ class LoginPage extends Component{
     }
 
   axios.post('http://localhost:3001/authenticate',{user})
+    .then((res) => {
+      if(res === 200) {
+        this.setState({isLoggedIn: true});
+      }
+    })
   
 }
 
@@ -59,6 +67,8 @@ render() {
           <Col xs lg="1">
             <Button className="login-button" variant="primary" size="lg" type="submit" 
             href="/home">Login</Button>
+            {this.state.isLoggedIn && 
+            <Redirect to={{pathname: Home, state: {isLoggedIn: true}}}/>}
           </Col>
         </Row>
       </Form>
