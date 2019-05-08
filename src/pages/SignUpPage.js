@@ -7,8 +7,19 @@ import Footer from './../components/footer/Footer'
 import canarinho from './../assets/images/canarinho.svg';
 import profilePhoto from './../assets/images/cutmypic.png';
 import { Api } from './../service/Api.js'
+import { useAlert } from 'react-alert';
 
-class SignUpPage extends Component{
+/**
+ * Function to use the logic of the alert hook.
+ */
+function alertHook(Component) {
+    return function WrappedComponent(props) {
+        const alert = useAlert();
+        return <Component {...props} alert={alert} />;
+    }
+}
+
+class SignUpPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,12 +33,12 @@ class SignUpPage extends Component{
     }
 
     handleInputChange = property => event => {
-        this.setState({...this.state, [property]: event.target.value});
+        this.setState({ ...this.state, [property]: event.target.value });
     }
 
-    submit = async() => {
+    submit = async () => {
 
-        if(this.state.password !== this.state.passwordRep) {
+        if (this.state.password !== this.state.passwordRep) {
             alert("Passwords did not match!");
             return;
         }
@@ -38,19 +49,19 @@ class SignUpPage extends Component{
             email: this.state.email,
             password: this.state.password
         }
-        await Api.post('user', user)
-            .then((res) => {
-                if(res.status === 201) {
-                    this.setState({ isAuth: true });
-                }
-            })
-            .catch((error) => {
-                console.log('error: ' + error);
-            });
+
+        try {
+            await Api.post('user', user);
+            this.props.alert.success('User successfully registered"');
+            this.setState({ isAuth: true });
+        }
+        catch (error) {
+            this.props.alert.error('Ops... something went wrong!');
+            console.log('error: ' + error);
+        };
     }
 
     render() {
-
         return (
             <div className="signup-page">
                 <Row>
@@ -68,23 +79,23 @@ class SignUpPage extends Component{
                                 <a href="" className="select-photo">Select your profile photo</a>
                             </div>
                         </div>
-    
+
                         <Form>
                             <Row className="justify-content-md-center no-margin signup-input-box">
-    
-                                <Form.Control className="signup-input" size="lg" placeholder="Username" onChange={this.handleInputChange("username")}/>
-    
-                                <Form.Control className="signup-input" size="lg" placeholder="Display name" onChange={this.handleInputChange("displayname")}/>
-    
-                                <Form.Control className="signup-input" size="lg" placeholder="Email" onChange={this.handleInputChange("email")}/>
-    
-                                <Form.Control className="signup-input" size="lg" placeholder="Password" type="password" onChange={this.handleInputChange("password")}/>
-    
-                                <Form.Control className="signup-input" size="lg" placeholder="Repeat your password" type="password" onChange={this.handleInputChange("passwordRep")}/>
-    
-    
+
+                                <Form.Control className="signup-input" size="lg" placeholder="Username" onChange={this.handleInputChange("username")} />
+
+                                <Form.Control className="signup-input" size="lg" placeholder="Display name" onChange={this.handleInputChange("displayname")} />
+
+                                <Form.Control className="signup-input" size="lg" placeholder="Email" onChange={this.handleInputChange("email")} />
+
+                                <Form.Control className="signup-input" size="lg" placeholder="Password" type="password" onChange={this.handleInputChange("password")} />
+
+                                <Form.Control className="signup-input" size="lg" placeholder="Repeat your password" type="password" onChange={this.handleInputChange("passwordRep")} />
+
+
                                 <Button className="signup-button" variant="primary" size="lg" onClick={this.submit}>Sign up</Button>
-                                {this.state.isAuth && <Redirect to="/"/>}
+                                {this.state.isAuth && <Redirect to="/" />}
                             </Row>
                         </Form>
                     </Col>
@@ -96,4 +107,5 @@ class SignUpPage extends Component{
     }
 }
 
+SignUpPage = alertHook(SignUpPage);
 export default SignUpPage;
