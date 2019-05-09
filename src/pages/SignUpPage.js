@@ -52,11 +52,12 @@ class SignUpPage extends Component {
 
         try {
             await Api.post('user', user);
-            this.props.alert.success('User successfully registered"');
+            this.props.alert.success('User successfully registered!"');
             this.setState({ isAuth: true });
         }
         catch (error) {
-            this.props.alert.error('Ops... something went wrong!');
+            error.response.data.message ? this.props.alert.error(error.response.data.message) :
+                this.props.alert.error('Ops... something went wrong!');
         };
     }
 
