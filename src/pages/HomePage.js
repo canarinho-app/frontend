@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './HomePage.css';
 
 import Navbar from '../components/navbar/Navbar';
+import Feed from '../pages/Feed';
 
 class HomePage extends Component {
     constructor(props) {
@@ -19,7 +20,10 @@ class HomePage extends Component {
         return( 
             <div>
                 {this.state.isLoggedIn && (
-                    <Navbar/>    
+                    <div>
+                        <Navbar/>
+                        <Feed/>    
+                    </div>
                 )}
             </div>
 

@@ -1,0 +1,70 @@
+.feed-page {
+    position: relative;
+    min-height: 100vmin;
+    background-color: #F9F6F4;
+    text-align: center;
+  }
+
+.content-box {
+    background-color: #fff;
+    margin-top: 10vh;
+    min-height: 90vh;
+    width: 50vw;
+    min-width: 630px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-bottom: 0.5vh;
+}
+
+.profile-info {
+    height: 30vh;
+}
+
+.profile-info-photo {
+    width: 20vh;
+}
+  
+.edit-profile-button {
+    color: #705845;
+    background-color: #fff;
+    border-color: #705845;
+}
+  
+.edit-profile-button:hover {
+    color: #705845;
+    background-color: #fff;
+    border-color: #705845;
+}
+  
+.edit-profile-button:focus {
+    box-shadow: none;
+}
+
+.profile-info-text {
+    text-align: start;
+    padding: 0 !important;
+    font-size: 2vh;
+    font-weight: bold;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.displayname-text {
+    font-size: 2.5vh;
+}
+
+.username-text {
+    color: #657786;
+}
+
+.fol-counter-label {
+    color: #657786;
+    padding-right: 0.5vh;
+}
+
+.fol-counter-number {
+    font-weight: bold;
+    padding-right: 0.5vh;
+}
