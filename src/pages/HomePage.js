@@ -7,19 +7,19 @@ class HomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoggedIn: props.isLoggedIn
+            isLoggedIn: props.location.state.isLoggedIn
         }
     }
     
     // handleIsLoggedIn(props) {
     //     this.setState({ isLoggedIn: props.isLoggedIn });
     // }
-
+    
     render(props) {
+        console.log(this.state.isLoggedIn)
         return( 
             <div>
                 {this.state.isLoggedIn && (
-
                     <Navbar/>    
                 )}
             </div>

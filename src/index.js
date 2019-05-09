@@ -9,11 +9,9 @@ import * as serviceWorker from './serviceWorker';
 
 // optional cofiguration
 const options = {
-    position: positions.BOTTOM_CENTER,
+    position: positions.TOP_RIGHT,
     timeout: 5000,
     offset: '30px',
-    // you can also just use 'scale'
-    transition: transitions.SCALE
   }
    
   const Root = () => (
