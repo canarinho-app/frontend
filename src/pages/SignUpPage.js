@@ -43,7 +43,7 @@ class SignUpPage extends Component {
             return;
         }
 
-        let user = {
+        const user = {
             displayname: this.state.displayname,
             username: this.state.username,
             email: this.state.email,
@@ -57,7 +57,6 @@ class SignUpPage extends Component {
         }
         catch (error) {
             this.props.alert.error('Ops... something went wrong!');
-            console.log('error: ' + error);
         };
     }
 

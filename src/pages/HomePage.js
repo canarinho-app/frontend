@@ -16,7 +16,6 @@ class HomePage extends Component {
     // }
     
     render(props) {
-        console.log(this.state.isLoggedIn)
         return( 
             <div>
                 {this.state.isLoggedIn && (
