@@ -23,7 +23,7 @@ class SignUpPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            profileImg: {},
+            profileImg: "",
             displayname: "",
             username: "",
             email: "",
