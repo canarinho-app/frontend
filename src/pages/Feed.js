@@ -1,12 +1,29 @@
-import React from "react";
+import React, { Component } from "react";
 import './Feed.css';
 import { Button, Image, Row, Col } from 'react-bootstrap';
+import axios from 'axios'
 
 import Navbar from './../components/navbar/Navbar';
 import profilePhoto from './../assets/images/cutmypic.png';
 import PostCard from './../components/post/PostCard';
 
-const Feed = () => {
+class Feed extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            userdata: []
+        }
+        
+    }
+
+componentDidMount(){
+    axios.get('http://localhost:3001/user?username=' +this.props.username)
+    .then(res =>
+        this.setState({userdata: res.data}))
+}
+
+
+render (props){
     return (
         <div>
             <Navbar/>
@@ -20,10 +37,10 @@ const Feed = () => {
                                         </Col>
                                         <Col xs="5" className="profile-info-text">
                                             <Col className="no-padding displayname-text">
-                                                <div>Victor Borges</div>
+                                                <div>{this.state.userdata.displayname}</div>
                                             </Col>
                                             <Col className="no-padding username-text">
-                                                <div>@victorborges</div>
+                                                <div>{this.state.userdata.username}</div>
                                             </Col>
                                             <Col>
                                                 <Row>
@@ -53,5 +70,5 @@ const Feed = () => {
         </div>
     );
   }
-  
+}
   export default Feed;

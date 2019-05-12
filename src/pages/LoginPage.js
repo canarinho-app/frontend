@@ -24,7 +24,8 @@ class LoginPage extends Component {
   state = {
     email: '',
     password: '',
-    isLoggedIn: false
+    isLoggedIn: false,
+    username: ''
   }
 
   handleChangeEmail = event => {
@@ -49,7 +50,8 @@ class LoginPage extends Component {
     axios.post('http://localhost:3001/authenticate', { user })
       .then((res) => {
         this.setState({ isLoggedIn: true });
-        this.props.history.push({ pathname: '/home', state: { isLoggedIn: true } });
+        this.setState({userId : res.data.username})
+        this.props.history.push({ pathname: '/home', state: { isLoggedIn: true , username: res.data.username} });
       }, error => {
         this.props.alert.error(error.response.data.message);
         });

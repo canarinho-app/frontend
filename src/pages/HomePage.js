@@ -8,7 +8,9 @@ class HomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoggedIn: props.location.state.isLoggedIn
+            isLoggedIn: props.location.state.isLoggedIn,
+            username: props.location.state.username
+
         }
     }
     
@@ -20,9 +22,10 @@ class HomePage extends Component {
         return( 
             <div>
                 {this.state.isLoggedIn && (
-                    <div>
+                    <div >
+                        {console.log(this.state.username)}
                         <Navbar/>
-                        <Feed/>    
+                        <Feed {...this.state}/>    
                     </div>
                 )}
             </div>
