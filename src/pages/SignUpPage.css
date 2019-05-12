@@ -44,7 +44,10 @@
     font-family: Lato;
     line-height: 62px;
     width: 240.26px;
+    text-decoration: none !important;
+    cursor: pointer;
 }
+
 
 .signup-input-box {
     padding-top: 2vmin;
