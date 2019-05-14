@@ -19,12 +19,15 @@ const PostCard = (props) => {
                     hoje eu cancelei uma corrida com um mototáxi pq o capacete não cabia na minha cabeça
                     </Row>
                     <Row className="no-margin postcard-footer">
-                        <Col xs="10" className="postcard-footer-counter">
+                        <Col xs="9" className="postcard-footer-counter">
                         {/* essa string tem q passar por pre-processamento..
                             se tiver curtidas, adiciona a contagem + Likes
                             se tiver reposts, adiciona a contagem + Reposts
                             tem q ter logica pro and tb */}
                             23 Likes and 5 Reposts
+                        </Col>
+                        <Col xs="1">
+                            <i class="fas fa-reply"></i>
                         </Col>
                         <Col xs="1">
                             <i class="fas fa-star"></i>

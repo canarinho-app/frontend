@@ -3,7 +3,7 @@
     padding-top: 2vh;
     margin-left: 0.5vw;
     margin-right: 0.5vw;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
     border-radius: 5px;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .new-post-text-box {
-    margin-left: 1vw;
+    margin-left: 0;
     height: 16vh;
 }
 
