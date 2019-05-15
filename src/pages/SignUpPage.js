@@ -70,7 +70,6 @@ class SignUpPage extends Component {
      */
     openFileDlg = () => {
         this.inputOpenFileRef.current.click();
-        console.log(this.inputOpenFileRef)
     };
 
     /**

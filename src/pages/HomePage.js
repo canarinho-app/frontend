@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import './HomePage.css';
-
 import Navbar from '../components/navbar/Navbar';
 import Feed from '../pages/Feed';
 
@@ -9,22 +9,30 @@ class HomePage extends Component {
         super(props);
         this.state = {
             isLoggedIn: props.location.state.isLoggedIn,
-            username: props.location.state.username
+            username: props.location.state.username,
+            user: {
+                displayname: '',
+                followers: [],
+                following: [],
+                profileImg: '',
+                email: '',
+                username: ''
 
+
+            }
         }
     }
     
-    // handleIsLoggedIn(props) {
-    //     this.setState({ isLoggedIn: props.isLoggedIn });
-    // }
+    componentDidMount() {
+        axios.get('http://localhost:3001/user?username=' + this.state.username)
+            .then(res => this.setState({ user: res.data }));
+    }
     
     render(props) {
         return( 
             <div>
                 {this.state.isLoggedIn && (
                     <div >
-                        {console.log(this.state.username)}
-                        <Navbar/>
                         <Feed {...this.state}/>    
                     </div>
                 )}
