@@ -11,7 +11,16 @@ class Feed extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            userdata: []
+            userdata: {
+                displayname: '',
+                followers: [],
+                following:[],
+                profileImg: '',
+                email: '',
+                username:''
+
+
+            }
         }
         
     }
@@ -19,7 +28,10 @@ class Feed extends Component{
 componentDidMount(){
     axios.get('http://localhost:3001/user?username=' +this.props.username)
     .then(res =>
-        this.setState({userdata: res.data}))
+        this.setState({userdata : res.data})    
+        
+        )
+     
 }
 
 
@@ -44,9 +56,9 @@ render (props){
                                             </Col>
                                             <Col>
                                                 <Row>
-                                                    <span className="fol-counter-number">500</span>
+                                                    <span className="fol-counter-number">{this.state.userdata.followers.length}</span>
                                                     <span className="fol-counter-label">Following</span>
-                                                    <span className="fol-counter-number">501</span>
+                                                    <span className="fol-counter-number">{this.state.userdata.following.length}</span>
                                                     <span className="fol-counter-label">Followers</span>
                                                 </Row>
                                             </Col>
@@ -56,13 +68,7 @@ render (props){
                                         </Col>
                                     </Row>
                                     <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
+                                    
                             </div>
                     </Col>
                 </Row>
