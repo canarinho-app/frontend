@@ -33,4 +33,5 @@ render (props){
     );
   }
 }
-  export default Timeline;
+
+export default Timeline;
