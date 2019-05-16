@@ -15,13 +15,14 @@ class PostCard extends Component{
         this.state = {
           show: false,
           tweet: {
-              like: [],
+              like: 0,
               comment:[],
               author: '',
               content: '',
 
           },
-          text: ''
+          text: '',
+          press: false
         };
     }
 
@@ -36,6 +37,10 @@ class PostCard extends Component{
 
         
     }
+
+    componentDidUpdate() {
+        // axios.post'http://localhost:3001/content?id=' + this.state.tweet.content()
+    }
     
     handleClose() {
         this.setState({ show: false });
@@ -43,6 +48,20 @@ class PostCard extends Component{
     
     handleShow() {
         this.setState({ show: true });
+    }
+
+    handleLike() {
+        if(this.state.press === false) {
+            this.setState({
+                tweet: {...this.state.tweet,
+                    like: this.state.tweet.like + 1} })
+            this.setState({press: true})
+        } else {
+            this.setState({
+                tweet: {...this.state.tweet,
+                    like: this.state.tweet.like - 1} })
+            this.setState({press: false})
+        }
     }
 
     render(props) {
@@ -66,7 +85,7 @@ class PostCard extends Component{
                                 se tiver curtidas, adiciona a contagem + Likes
                                 se tiver reposts, adiciona a contagem + Reposts
                                 tem q ter logica pro and tb */}
-                                {this.state.tweet.like.length} Likes and {this.state.tweet.comment.length} Reposts
+                                {this.state.tweet.like} Likes and {this.state.tweet.comment.length} Reposts
                             </Col>
                             <Col xs="1">
                                 <i class="fas fa-reply" onClick={this.handleShow}></i>
@@ -104,7 +123,7 @@ class PostCard extends Component{
                                 </Modal>
                             </Col>
                             <Col xs="1">
-                                <i class="fas fa-star"></i>
+                                <button onClick={() => this.handleLike()}><i class="fas fa-star"></i></button>
                             </Col>
                             <Col xs="1">
                                 <i class="fas fa-retweet"></i>
