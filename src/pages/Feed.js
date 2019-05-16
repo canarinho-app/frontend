@@ -46,7 +46,6 @@ class Feed extends Component {
                                         <Button className="edit-profile-button" variant="primary" size="lg">Edit Profile</Button>
                                     </Col>
                                 </Row>
-                                <PostCard />
 
                             </div>
                         </Col>

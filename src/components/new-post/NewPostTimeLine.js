@@ -22,7 +22,7 @@ class NewPostTimeLine extends Component {
         super(props);
         this.state = {
             text: ""
-        }
+        }   
     }
 
     handleInputChange = property => event => {
@@ -40,12 +40,14 @@ class NewPostTimeLine extends Component {
 
             const createdTweet = await Api.post('tweet', tweet);
             
-            let updatedUser = this.props.user;
+            let updatedUser = await Api.get(`user?username=${this.props.user.username}`);
+            updatedUser = updatedUser.data;
+            
             updatedUser.tweets.push(createdTweet.data.id);
             await Api.patch(`user?username=${this.props.user.username}`, updatedUser);
             
             this.setState({text: ""})
-            this.props.alert.success("Publication posted with success!");
+            window.location.reload();
         }
         catch (error){
             error.response.data.message ? this.props.alert.error(error.response.data.message) :

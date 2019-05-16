@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './Timeline.css';
 import { Row, Col } from 'react-bootstrap';
-
+import axios from 'axios'
 import Navbar from './../components/navbar/Navbar';
 import PostCard from './../components/post/PostCard';
 import NewPostTimeLine from './../components/new-post/NewPostTimeLine';
@@ -9,9 +9,37 @@ import NewPostTimeLine from './../components/new-post/NewPostTimeLine';
 class Timeline extends Component{
     constructor(props) {
         super(props);
+        this.state = {tweets:[]}
+    }
+
+    async componentDidMount() {
+       const userData = await axios.get('http://localhost:3001/user?username=' + this.props.username);
+       const tweetsId = userData.data.tweets;
+
+       tweetsId.forEach(async element => {
+           const tempTweet = await axios.get('http://localhost:3001/tweet?id=' + element);
+           const tweetContent = await axios.get('http://localhost:3001/content?id=' + tempTweet.data.content);
+
+           let tweet = tempTweet.data;
+           tweet.author = userData.data;
+           tweet.content = tweetContent.data;
+
+           this.setState({
+            tweets: [...this.state.tweets, tweet]
+           
+          });
+       });
     }
 
 render (props){
+    const tweets = this.state.tweets
+    .map(item => {
+        return(
+        <PostCard tweet = {item} key={item.id}/>
+        );
+   
+    });
+    
     return (
         <div>
             <Navbar user = {this.props.user}/>
@@ -20,14 +48,7 @@ render (props){
                     <Col md="auto">
                             <div className="content-box">
                                     <NewPostTimeLine user = {this.props.user}/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
+                                    {tweets}
                             </div>
                     </Col>
                 </Row>

@@ -3,6 +3,8 @@ import './PostCard.css';
 import { Image, Row, Col, Modal, Button, Form } from 'react-bootstrap';
 import profilePhoto from './../../assets/images/cutmypic.png';
 
+const uploads = 'http://localhost:3001/uploads/';
+
 class PostCard extends Component{
 
     constructor(props, context) {
@@ -25,19 +27,20 @@ class PostCard extends Component{
     }
 
     render(props) {
+      
         return (
             <div className="postcard-box">
                 <Row className="no-margin">
                     <Col xs="2">
-                        <Image src={profilePhoto} className="postcard-profile-photo" alt="photo" />
+                        <Image src={this.props.tweet.author.profileImg ? `${uploads}${this.props.tweet.author.profileImg}` : profilePhoto} className="postcard-profile-photo" alt="photo" />
                     </Col>
                     <Col xs="10" className="postcard-content-box">
                         <Row className="no-margin postcard-identifier">
-                            <span className="postcard-displayname"> Victor Borges </span>
-                            <span className="postcard-username"> @victorborges </span>
+                            <span className="postcard-displayname"> {this.props.tweet.author.displayname} </span>
+                            <span className="postcard-username"> @{this.props.tweet.author.username} </span>
                         </Row>
                         <Row className="no-margin postcard-content">
-                        hoje eu cancelei uma corrida com um mototáxi pq o capacete não cabia na minha cabeça
+                        {this.props.tweet.content.text}
                         </Row>
                         <Row className="no-margin postcard-footer">
                             <Col xs="9" className="postcard-footer-counter">
@@ -71,7 +74,7 @@ class PostCard extends Component{
                                                 <span className="reply-modal-form-label-second">@victorborges</span>
                                             </Row>
                                             <Row className="reply-modal-textarea">
-                                                <Form.Control as="textarea" className="reply-modal-post-textarea" rows="3" maxlength="280"/>
+                                                <Form.Control as="textarea" className="reply-modal-post-textarea" rows="3" maxLength="280"/>
                                             </Row>
                                         </div>
                                     </Modal.Body>

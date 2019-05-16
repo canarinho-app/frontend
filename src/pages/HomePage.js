@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import './HomePage.css';
-import Feed from '../pages/Feed';
 import Timeline from '../pages/Timeline';
 
 class HomePage extends Component {
