@@ -20,14 +20,8 @@ render (props){
                     <Col md="auto">
                             <div className="content-box">
                                     <NewPostTimeLine user = {this.props.user}/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
-                                    <PostCard/>
+                                    <PostCard userinfo = {this.props.user}/>
+                                    
                             </div>
                     </Col>
                 </Row>

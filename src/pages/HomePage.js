@@ -16,7 +16,8 @@ class HomePage extends Component {
                 following: [],
                 profileImg: '',
                 email: '',
-                username: ''
+                username: '',
+                tweets:[]
             }
         }
     }

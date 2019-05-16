@@ -12,6 +12,7 @@ class Feed extends Component {
     constructor(props) {
         super(props);
         this.user = this.props.location.state;
+       
     }
 
     render(props) {
@@ -46,8 +47,11 @@ class Feed extends Component {
                                         <Button className="edit-profile-button" variant="primary" size="lg">Edit Profile</Button>
                                     </Col>
                                 </Row>
-                                <PostCard />
-
+                                <div>{this.user.tweets.map(tweet =>  
+                                    <PostCard tweetId = {tweet} userinfo = {this.user}/>    
+                                    )}
+                                
+                                </div>
                             </div>
                         </Col>
                     </Row>
