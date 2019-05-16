@@ -12,7 +12,7 @@ import * as serviceWorker from './serviceWorker';
 const options = {
     position: positions.TOP_RIGHT,
     timeout: 5000,
-    offset: '30px',
+    offset: '70px',
   }
    
   const Root = () => (
