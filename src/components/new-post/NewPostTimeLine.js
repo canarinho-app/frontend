@@ -24,7 +24,7 @@ class NewPostTimeLine extends Component {
             text: ""
         }   
     }
-
+ 
     handleInputChange = property => event => {
         this.setState({ ...this.state, [property]: event.target.value });
     }

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import './Feed.css';
 import { Button, Image, Row, Col } from 'react-bootstrap';
-
-import Navbar from './../components/navbar/Navbar';
 import defaultPhoto from './../assets/images/cutmypic.png';
-import PostCard from './../components/post/PostCard';
+import Timeline from '../pages/Timeline';
 
 const uploads = 'http://localhost:3001/uploads/';
 
@@ -17,7 +15,6 @@ class Feed extends Component {
     render(props) {
         return (
             <div>
-                <Navbar user = {this.user}/>
                 <div className="feed-page">
                     <Row className="justify-content-md-center no-margin">
                         <Col md="auto">
@@ -46,7 +43,7 @@ class Feed extends Component {
                                         <Button className="edit-profile-button" variant="primary" size="lg">Edit Profile</Button>
                                     </Col>
                                 </Row>
-
+                                <Timeline user = {this.user} username = {this.user.username} isProfileFeed={true}/>   
                             </div>
                         </Col>
                     </Row>

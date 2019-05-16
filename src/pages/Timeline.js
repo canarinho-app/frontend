@@ -6,56 +6,57 @@ import Navbar from './../components/navbar/Navbar';
 import PostCard from './../components/post/PostCard';
 import NewPostTimeLine from './../components/new-post/NewPostTimeLine';
 
-class Timeline extends Component{
+class Timeline extends Component {
     constructor(props) {
         super(props);
-        this.state = {tweets:[]}
+        this.state = { tweets: [] };
     }
 
     async componentDidMount() {
-       const userData = await axios.get('http://localhost:3001/user?username=' + this.props.username);
-       const tweetsId = userData.data.tweets;
+        const userData = await axios.get('http://localhost:3001/user?username=' + this.props.username);
+        const tweetsId = userData.data.tweets;
 
-       tweetsId.forEach(async element => {
-           const tempTweet = await axios.get('http://localhost:3001/tweet?id=' + element);
-           const tweetContent = await axios.get('http://localhost:3001/content?id=' + tempTweet.data.content);
+        tweetsId.forEach(async element => {
+            const tempTweet = await axios.get('http://localhost:3001/tweet?id=' + element);
+            const tweetContent = await axios.get('http://localhost:3001/content?id=' + tempTweet.data.content);
 
-           let tweet = tempTweet.data;
-           tweet.author = userData.data;
-           tweet.content = tweetContent.data;
+            let tweet = tempTweet.data;
+            tweet.author = userData.data;
+            tweet.content = tweetContent.data;
 
-           this.setState({
-            tweets: [...this.state.tweets, tweet]
-           
-          });
-       });
+            this.setState({
+                tweets: [...this.state.tweets, tweet]
+
+            });
+        });
     }
 
-render (props){
-    const tweets = this.state.tweets
-    .map(item => {
-        return(
-        <PostCard tweet = {item} key={item.id}/>
-        );
-   
-    });
-    
-    return (
-        <div>
-            <Navbar user = {this.props.user}/>
-            <div className="feed-page">
-                <Row className="justify-content-md-center no-margin">
-                    <Col md="auto">
+    render(props) {
+        const tweets = [].concat(this.state.tweets)
+            .sort((a, b) => a.date - b.date).reverse()
+            .map(item => {
+                return (
+                    <PostCard tweet={item} key={item.id} />
+                );
+
+            });
+
+        return (
+            <div>
+                <Navbar user={this.props.user} />
+                <div className="feed-page">
+                    <Row className="justify-content-md-center no-margin">
+                        <Col md="auto">
                             <div className="content-box">
-                                    <NewPostTimeLine user = {this.props.user}/>
-                                    {tweets}
+                                {!this.props.isProfileFeed && <NewPostTimeLine user={this.props.user} />}
+                                {tweets}
                             </div>
-                    </Col>
-                </Row>
+                        </Col>
+                    </Row>
+                </div>
             </div>
-        </div>
-    );
-  }
+        );
+    }
 }
 
 export default Timeline;
