@@ -1,24 +1,65 @@
 import React, { Component } from "react";
 import './NewPostTimeLine.css';
 import { Button, Image, Row, Col, Form } from 'react-bootstrap';
-import profilePhoto from './../../assets/images/cutmypic.png';
+import defaultPhoto from './../../assets/images/cutmypic.png';
+import { Api } from './../../service/Api.js';
+import { useAlert } from 'react-alert';
 
+const uploads = 'http://localhost:3001/uploads/';
 
-class NewPostTimeLine extends Component{
+/**
+ * Function to use the logic of the alert hook.
+ */
+function alertHook(Component) {
+    return function WrappedComponent(props) {
+        const alert = useAlert();
+        return <Component {...props} alert={alert} />;
+    }
+}
 
-    render (props){
+class NewPostTimeLine extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: ""
+        }
+    }
+
+    handleInputChange = property => event => {
+        this.setState({ ...this.state, [property]: event.target.value });
+    }
+
+    submit = async () => {
+        try {
+            const content = { text: this.state.text };
+            const createdContent = await Api.post('content', content);
+            const tweet = {
+                author: this.props.user,
+                content: createdContent.data.id
+            };
+
+            await Api.post('tweet', tweet);
+            this.props.alert.success("Publication posted with success!");
+        }
+        catch (error){
+            error.response.data.message ? this.props.alert.error(error.response.data.message) :
+            this.props.alert.error('Ops... something went wrong!')
+        }
+    }
+
+    render(props) {
         return (
             <div className="new-post-timeline-box">
                 <Row className="no-margin">
                     <Col xs="2">
-                        <Image src={profilePhoto} className="new-post-timeline-profile-photo" alt="photo" />
+                        <Image src={this.props.user.profileImg ? `${uploads}${this.props.user.profileImg}` : defaultPhoto} className="new-post-timeline-profile-photo" alt="photo" />
                     </Col>
                     <Col xs="10" className="new-post-timeline-content-box">
                         <Row className="new-post-text-box no-margin-right">
-                            <Form.Control as="textarea" className="new-post-textarea" rows="3" placeholder="O que está acontecendo?" maxlength="280"/>
+                            <Form.Control as="textarea" className="new-post-textarea" rows="3" placeholder="O que está acontecendo?" maxLength="280" onChange={this.handleInputChange("text")} />
                         </Row>
                         <Row className="justify-content-end new-post-button-box no-margin-right">
-                            <Button className="new-post-button" variant="primary" size="lg">Postar</Button>
+                            <Button className="new-post-button" variant="primary" onClick={this.submit} size="lg">Postar</Button>
                         </Row>
                     </Col>
                 </Row>
@@ -27,5 +68,5 @@ class NewPostTimeLine extends Component{
         );
     }
 }
-
+NewPostTimeLine = alertHook(NewPostTimeLine);
 export default NewPostTimeLine;

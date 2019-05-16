@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import './HomePage.css';
-import Navbar from '../components/navbar/Navbar';
 import Feed from '../pages/Feed';
+import Timeline from '../pages/Timeline';
 
 class HomePage extends Component {
     constructor(props) {
@@ -17,8 +17,6 @@ class HomePage extends Component {
                 profileImg: '',
                 email: '',
                 username: ''
-
-
             }
         }
     }
@@ -33,7 +31,7 @@ class HomePage extends Component {
             <div>
                 {this.state.isLoggedIn && (
                     <div >
-                        <Feed {...this.state}/>    
+                        <Timeline {...this.state}/>    
                     </div>
                 )}
             </div>

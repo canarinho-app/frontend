@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import Home from './HomePage';
 import './LoginPage.css';
 import Footer from './../components/footer/Footer';
 import canarinho from './../assets/images/canarinho.svg'
 import axios from 'axios'
 import { Button, Image, Form, Row, Col } from 'react-bootstrap';
-import { Redirect } from 'react-router';
 import { useAlert } from 'react-alert';
 
 

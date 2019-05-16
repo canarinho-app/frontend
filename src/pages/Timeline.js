@@ -7,16 +7,19 @@ import PostCard from './../components/post/PostCard';
 import NewPostTimeLine from './../components/new-post/NewPostTimeLine';
 
 class Timeline extends Component{
+    constructor(props) {
+        super(props);
+    }
 
 render (props){
     return (
         <div>
-            <Navbar/>
+            <Navbar user = {this.props.user}/>
             <div className="feed-page">
                 <Row className="justify-content-md-center no-margin">
                     <Col md="auto">
                             <div className="content-box">
-                                    <NewPostTimeLine/>
+                                    <NewPostTimeLine user = {this.props.user}/>
                                     <PostCard/>
                                     <PostCard/>
                                     <PostCard/>
