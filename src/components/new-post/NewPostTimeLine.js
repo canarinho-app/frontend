@@ -38,7 +38,13 @@ class NewPostTimeLine extends Component {
                 content: createdContent.data.id
             };
 
-            await Api.post('tweet', tweet);
+            const createdTweet = await Api.post('tweet', tweet);
+            
+            let updatedUser = this.props.user;
+            updatedUser.tweets.push(createdTweet.data.id);
+            await Api.patch(`user?username=${this.props.user.username}`, updatedUser);
+            
+            this.setState({text: ""})
             this.props.alert.success("Publication posted with success!");
         }
         catch (error){
@@ -56,7 +62,7 @@ class NewPostTimeLine extends Component {
                     </Col>
                     <Col xs="10" className="new-post-timeline-content-box">
                         <Row className="new-post-text-box no-margin-right">
-                            <Form.Control as="textarea" className="new-post-textarea" rows="3" placeholder="O que está acontecendo?" maxLength="280" onChange={this.handleInputChange("text")} />
+                            <Form.Control as="textarea" className="new-post-textarea" rows="3" value={this.state.text} placeholder="O que está acontecendo?" maxLength="280" onChange={this.handleInputChange("text")} />
                         </Row>
                         <Row className="justify-content-end new-post-button-box no-margin-right">
                             <Button className="new-post-button" variant="primary" onClick={this.submit} size="lg">Postar</Button>

@@ -66,5 +66,6 @@ button:focus {
     margin-top: 5px;
     position: absolute;
     left: 72.5vw;
-    border-radius: 50%
+    border-radius: 50%;
+    max-height: 77%;
 }
