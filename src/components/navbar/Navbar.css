@@ -37,7 +37,7 @@ button:focus {
 
 .logo-navbar {
     width: 5vh;
-    margin-top: 5px;
+    margin-top: 9px;
     position: absolute;
     left: 50vw;
 }
@@ -52,15 +52,19 @@ button:focus {
     font-family: Lato;
     font-size: 18px;
     font-weight: 400;
-    margin-top: 7px;
+    margin-top: 15px;
     position: absolute;
     left: 66vw;
+    text-decoration: none !important;
+}
+
+.search-navbar:hover{
+    color: black !important;
 }
 
 .search-form {
     background-color: #705845;
     border-color: #fff;
-    color: #fff;
     width: 200px;
     margin-top: 9px;
     position: absolute;
@@ -70,7 +74,6 @@ button:focus {
 .search-form:focus {
     background-color: #fff;
     border-color: #F3804B;
-    color: #fff;
     box-shadow: none;
 }
 
