@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './Navbar.css';
-import { Container, Image, ButtonToolbar, Button, Navbar, Nav } from 'react-bootstrap';
+import { Container, Image, ButtonToolbar, Button, Navbar, Nav, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import canarinho from '../../assets/images/canarinho.svg';
 import defaultPhoto from '../../assets/images/cutmypic.png';
@@ -20,8 +20,11 @@ class NavbarCanarinho extends Component {
                                 Home
                             </Link>
                             <Button href="/notification" className="notification-navbar" variant="outline-none">Notifications</Button>
-                            <i className="fas fa-search"></i>
-                            <Button className="search-navbar" variant="outline-none">Search</Button>
+                            <Form.Control className="search-form " type="text" />
+                            <Button className="search-navbar" variant="outline-none">
+                                <i className="fas fa-search"></i>
+                                Search
+                            </Button>
                             <Link to={{ pathname: '/profile', state: this.props.user }}>
                                 <Image src={this.props.user.profileImg ? `${uploads}${this.props.user.profileImg}` : defaultPhoto} className="profile-photo-navbar" alt="photo" />
                             </Link>

@@ -43,10 +43,7 @@ button:focus {
 }
 
 .fa-search {
-    color: #FFFFFF;
-    margin-top: 20px;
-    position: absolute;
-    left: 66vw;
+    margin-right: 7px;
 }
 
 .search-navbar {
@@ -55,10 +52,30 @@ button:focus {
     font-family: Lato;
     font-size: 18px;
     font-weight: 400;
-    width: 61px;
     margin-top: 7px;
     position: absolute;
-    left: 67vw;
+    left: 66vw;
+}
+
+.search-form {
+    background-color: #705845;
+    border-color: #fff;
+    color: #fff;
+    width: 200px;
+    margin-top: 9px;
+    position: absolute;
+    left: 55vw;
+}
+
+.search-form:focus {
+    background-color: #fff;
+    border-color: #F3804B;
+    color: #fff;
+    box-shadow: none;
+}
+
+.search-form::placeholder {
+    color: #CCCCCC !important;
 }
 
 .profile-photo-navbar {
