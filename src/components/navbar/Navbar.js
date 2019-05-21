@@ -33,7 +33,8 @@ class NavbarCanarinho extends Component {
                             </Link>
                             <Button href="/notification" className="notification-navbar" variant="outline-none">Notifications</Button>
                             <Form.Control className="search-form " type="text" onChange={this.handleChangeSearch} />
-                            <Link to={{ pathname: '/search', state: {search: this.state.search, user: this.props.user} }} className="search-navbar" variant="outline-none">
+                            <Link to={{ pathname: '/search', state: {search: this.state.search, user: this.props.user} }} className="search-navbar" variant="outline-none"
+                                >
                                 <i className="fas fa-search"></i>
                                 Search
                             </Link>
