@@ -51,7 +51,7 @@ class PostCard extends Component{
                                 23 Likes and 5 Reposts
                             </Col>
                             <Col xs="1">
-                                <i class="fas fa-reply" onClick={this.handleShow}></i>
+                                <i className="fas fa-reply" onClick={this.handleShow}></i>
                                 <Modal size="lg" show={this.state.show} onHide={this.handleClose}>
                                     <Modal.Header closeButton>
                                         <Modal.Title>Responder para Victor Borges</Modal.Title>
@@ -86,10 +86,10 @@ class PostCard extends Component{
                                 </Modal>
                             </Col>
                             <Col xs="1">
-                                <i class="fas fa-star"></i>
+                                <i className="fas fa-star"></i>
                             </Col>
                             <Col xs="1">
-                                <i class="fas fa-retweet"></i>
+                                <i className="fas fa-retweet"></i>
                             </Col>
                         </Row>
                     </Col>
