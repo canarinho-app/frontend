@@ -24,6 +24,22 @@ button:focus {
     color: black !important;
 }
 
+.logout-navbar{
+    color: #FFFFFF;
+    background-color: #705845;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 400;
+    width: 100px;
+    margin-top: 16px;
+    margin-left: 34vw;
+    text-align: center;
+    text-decoration: none !important;
+}
+.logout-navbar{
+    color:  #FFFFFF !important;
+}
+
 .notification-navbar {
     color: #FFFFFF;
     background-color: #705845;
@@ -54,7 +70,7 @@ button:focus {
     font-weight: 400;
     margin-top: 15px;
     position: absolute;
-    left: 66vw;
+    left: 59vw;
     text-decoration: none !important;
 }
 
@@ -79,11 +95,12 @@ button:focus {
 
 .search-form::placeholder {
     color: #CCCCCC !important;
+    
 }
 
 .profile-photo-navbar {
     width: 5vh;
-    margin-top: 5px;
+    margin-top: 15px;
     position: absolute;
     left: 72.5vw;
     border-radius: 50%;
