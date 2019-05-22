@@ -20,15 +20,15 @@ function alertHook(Component) {
 class LoginPage extends Component {
 
   state = {
-    email: '',
+    userlog: '',
     password: '',
     isLoggedIn: false,
     username: ''
   }
 
-  handleChangeEmail = event => {
+  handleChangeUsernameLog = event => {
     // console.log(event.target.value)
-    this.setState({ email: event.target.value })
+    this.setState({ userlog: event.target.value })
   }
 
   handleChangePassword = event => {
@@ -41,7 +41,7 @@ class LoginPage extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const user = {
-      email: this.state.email,
+      username: this.state.userlog,
       password: this.state.password
     }
 
@@ -70,7 +70,7 @@ class LoginPage extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Row className="justify-content-md-center no-margin login-input-box">
             <Col xs lg="2">
-              <Form.Control className="login-input" size="lg" placeholder="Username" onChange={this.handleChangeEmail} />
+              <Form.Control className="login-input" size="lg" placeholder="Username" onChange={this.handleChangeUsernameLog} />
             </Col>
             <Col xs lg="2">
               <Form.Control className="login-input" size="lg" placeholder="Password" type="password" onChange={this.handleChangePassword} />
