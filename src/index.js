@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import { positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 import './index.css';
 import App from './components/app/App';
-import Feed from './pages/Feed';
 import * as serviceWorker from './serviceWorker';
 
 

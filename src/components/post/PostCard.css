@@ -11,6 +11,10 @@
     padding: 1vh;
 }
 
+.modal-body {
+    overflow-y: auto;
+}
+
 .postcard-identifier {
     height: 2vh;
 }
@@ -72,6 +76,12 @@
 .reply-modal-post-box {
     padding: 1vh;
     background-color: #EEEEEE !important;
+}
+
+.reply-modal-post-box-comment {
+    padding: 1vh;
+    background-color: #EEEEEE !important;
+    margin-top: 10px;
 }
 
 .reply-modal-form-label {
