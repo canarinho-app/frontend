@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './Feed.css';
-import { Button, Image, Row, Col } from 'react-bootstrap';
+import { Button, Image, Row, Col, Modal, Form } from 'react-bootstrap';
 import defaultPhoto from './../assets/images/cutmypic.png';
 import Timeline from '../pages/Timeline';
 
@@ -10,6 +10,21 @@ class Feed extends Component {
     constructor(props) {
         super(props);
         this.user = this.props.location.state;
+
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+
+        this.state = {
+            show: false,
+        };
+    }
+
+    handleClose() {
+        this.setState({ show: false });
+    }
+    
+    handleShow() {
+        this.setState({ show: true });
     }
 
     render(props) {
@@ -40,7 +55,37 @@ class Feed extends Component {
                                         </Col>
                                     </Col>
                                     <Col xs="3">
-                                        <Button className="edit-profile-button" variant="primary" size="lg">Edit Profile</Button>
+                                        <Button className="edit-profile-button" variant="primary" size="lg" onClick={this.handleShow}>Edit Profile</Button>
+                                        <Modal size="md" show={this.state.show} onHide={this.handleClose}>
+                                            <Modal.Header closeButton>
+                                                <Modal.Title>Editar Perfil</Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>
+                                                <div className="edit-profile-modal-body-box no-margin">
+                                                    <Col className="justify-content-md-center reply-modal-form-label">
+                                                        <span className="edit-profile-modal-form-label">Seu nome de exibição é: Victor Borges</span>
+                                                        <Row>
+                                                            <Form.Control className="edit-profile-input" size="lg" placeholder="Display name" />
+                                                        </Row>
+                                                        <Row>
+                                                            <Form.Control className="edit-profile-input" size="lg" placeholder="Bio" />
+                                                        </Row>
+                                                        <Row>
+                                                            <Form.Control className="edit-profile-input" size="lg" placeholder="Password" type="password"/>
+                                                        </Row>
+                                                        <Row>
+                                                            <Form.Control className="edit-profile-input" size="lg" placeholder="Repeat your password" type="password"/>
+                                                        </Row>
+                                                        
+                                                    </Col>
+                                                </div>
+                                            </Modal.Body>
+                                            <Modal.Footer>
+                                                <Button className="edit-profile-modal-button" variant="primary" onClick={this.handleClose}>
+                                                    Salvar
+                                                </Button>
+                                            </Modal.Footer>
+                                        </Modal>
                                     </Col>
                                 </Row>
                                 <Timeline user = {this.user} username = {this.user.username} isProfileFeed={true}/>   

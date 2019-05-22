@@ -68,3 +68,54 @@
     font-weight: bold;
     padding-right: 0.5vh;
 }
+
+.edit-profile-modal-body-box {
+    height: 43vh;
+    text-align: center;
+    min-width: 466px;
+    min-height: 280px;
+}
+
+.edit-profile-modal-button {
+    color: #fff;
+    background-color: #705845;
+    border-color: #705845;
+}
+  
+.edit-profile-modal-button:hover {
+    color: #fff;
+    background-color: #705845;
+    border-color: #705845;
+}
+  
+.edit-profile-modal-button:focus {
+    box-shadow: none;
+}
+
+.edit-profile-modal-form-label {
+    color: #838383;
+}
+
+.edit-profile-input {
+    width: 40vh;
+    height: 5vh;
+    margin: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+    border-color: #705845;
+    color: black;
+    min-width: 350px;
+    min-height: 44px;
+}
+
+.edit-profile-input:focus {
+    background-color: #FFFFFF;
+    border-color: #F3804B;
+    box-shadow: none;
+    color: black;
+}
+
+.edit-profile-input::placeholder {
+    color: #838383 !important;
+}
