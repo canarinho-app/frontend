@@ -119,3 +119,35 @@
 .edit-profile-input::placeholder {
     color: #838383 !important;
 }
+
+.follow-profile-button {
+    color: #fff;
+    background-color: #705845;
+    border-color: #705845;
+}
+  
+.follow-profile-button:hover {
+    color: #fff;
+    background-color: #705845;
+    border-color: #705845;
+}
+  
+.follow-profile-button:focus {
+    box-shadow: none;
+}
+
+.unfollow-profile-button {
+    color: #705845;
+    background-color: #fff;
+    border-color: #705845;
+}
+  
+.unfollow-profile-button:hover {
+    color: #705845;
+    background-color: #fff;
+    border-color: #705845;
+}
+  
+.unfollow-profile-button:focus {
+    box-shadow: none;
+}

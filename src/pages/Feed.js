@@ -55,7 +55,10 @@ class Feed extends Component {
                                         </Col>
                                     </Col>
                                     <Col xs="3">
-                                        <Button className="edit-profile-button" variant="primary" size="lg" onClick={this.handleShow}>Edit Profile</Button>
+                                        {/* Botão de editar perfil: <Button className="edit-profile-button" variant="primary" size="lg" onClick={this.handleShow}>Editar Perfil</Button> */}
+                                        {/* Botão de seguir perfil: <Button className="follow-profile-button" variant="primary" size="lg">Seguir</Button> */}
+                                        {/* Botão de deixar de seguir: <Button className="unfollow-profile-button" variant="primary" size="lg">Deixar de Seguir</Button> */}
+                                        <Button className="edit-profile-button" variant="primary" size="lg" onClick={this.handleShow}>Editar Perfil</Button>
                                         <Modal size="md" show={this.state.show} onHide={this.handleClose}>
                                             <Modal.Header closeButton>
                                                 <Modal.Title>Editar Perfil</Modal.Title>
