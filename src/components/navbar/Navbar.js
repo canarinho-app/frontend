@@ -4,8 +4,7 @@ import { Container, Image, ButtonToolbar, Button, Navbar, Nav, Form } from 'reac
 import { Link } from 'react-router-dom';
 import canarinho from '../../assets/images/canarinho.svg';
 import defaultPhoto from '../../assets/images/cutmypic.png';
-import SearchPage from '../../pages/SearchPage';
-import { Redirect } from 'react-router';
+
 
 const uploads = 'http://localhost:3001/uploads/';
 
@@ -26,12 +25,12 @@ class NavbarCanarinho extends Component {
             <Container>
                 <Navbar className="menu-area" fixed="top">
                     <Nav className="menu">
-                        <Image src={canarinho} className="logo-navbar" alt="logo" fluid />
                         <ButtonToolbar>
                             <Link to={{ pathname: '/home', state: { isLoggedIn: true, username: this.props.user.username } }} className="home-navbar" variant="outline-none">
                                 Home
                             </Link>
-                            <Button className="notification-navbar" variant="outline-none">Notifications</Button>
+                            <Link className="notification-navbar" variant="outline-none">Notifications</Link>
+                            <Image src={canarinho} className="logo-navbar" alt="logo" fluid />
                             <Form.Control className="search-form " type="text" onChange={this.handleChangeSearch} />
                             <Link to={{ pathname: '/search', state: {search: this.state.search, user: this.props.user} }} className="search-navbar" variant="outline-none"
                                 >
