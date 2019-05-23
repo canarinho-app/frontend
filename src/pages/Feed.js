@@ -3,6 +3,7 @@ import './Feed.css';
 import { Button, Image, Row, Col, Modal, Form } from 'react-bootstrap';
 import defaultPhoto from './../assets/images/cutmypic.png';
 import Timeline from '../pages/Timeline';
+import Axios from "axios";
 
 const uploads = 'http://localhost:3001/uploads/';
 
@@ -13,19 +14,56 @@ class Feed extends Component {
 
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
+        this.handleChangeDisplayBio = this.handleChangeDisplayBio.bind(this)
+        this.handleChangeDisplayName = this.handleChangeDisplayName.bind(this)
+        this.handleChangeDisplayPassword = this.handleChangeDisplayPassword.bind(this)
+        this.handleChangeDisplayPasswordRep = this.handleChangeDisplayPasswordRep.bind(this)
 
         this.state = {
             show: false,
+            displayname: "",
+            bio: "",
+            password:"",
+            passwordRep:"",
         };
     }
 
     handleClose() {
         this.setState({ show: false });
+        if(this.state.password !== this.state.passwordRep){
+            alert("Password did not match!")
+            return;
+        }
+        let userUpdate = {
+            displayname: this.state.displayname,
+            bio: this.state.bio,
+            password: this.state.password
+        }
+        Axios.patch('http://localhost:3001/user/profile?username=' + this.user.username, {userUpdate})
     }
     
     handleShow() {
         this.setState({ show: true });
     }
+
+    handleChangeDisplayName(event){
+        this.setState({ displayname: event.target.value})
+    }
+
+    handleChangeDisplayBio(event){
+        this.setState({ bio: event.target.value})
+    }
+
+    handleChangeDisplayPassword(event){
+        this.setState({ password: event.target.value})
+        console.log(this.state.password)
+    }
+
+    handleChangeDisplayPasswordRep(event){
+        this.setState({ passwordRep: event.target.value})
+    }
+
+
 
     render(props) {
         return (
@@ -44,6 +82,9 @@ class Feed extends Component {
                                         </Col>
                                         <Col className="no-padding username-text">
                                             <div>{this.user.username}</div>
+                                        </Col>
+                                        <Col className="no-padding username-text">
+                                            <div>{this.user.bio}</div>
                                         </Col>
                                         <Col>
                                             <Row>
@@ -66,18 +107,18 @@ class Feed extends Component {
                                             <Modal.Body>
                                                 <div className="edit-profile-modal-body-box no-margin">
                                                     <Col className="justify-content-md-center reply-modal-form-label">
-                                                        <span className="edit-profile-modal-form-label">Seu nome de exibição é: Victor Borges</span>
+                                                        <span className="edit-profile-modal-form-label">Seu nome de exibição é: {this.user.displayname}</span>
                                                         <Row>
-                                                            <Form.Control className="edit-profile-input" size="lg" placeholder="Display name" />
+                                                            <Form.Control className="edit-profile-input" size="lg" placeholder="Display name" onChange={this.handleChangeDisplayName}/>
                                                         </Row>
                                                         <Row>
-                                                            <Form.Control className="edit-profile-input" size="lg" placeholder="Bio" />
+                                                            <Form.Control className="edit-profile-input" size="lg" placeholder="Bio" onChange={this.handleChangeDisplayBio}/>
                                                         </Row>
                                                         <Row>
-                                                            <Form.Control className="edit-profile-input" size="lg" placeholder="Password" type="password"/>
+                                                            <Form.Control className="edit-profile-input" size="lg" placeholder="Password" type="password" onChange={this.handleChangeDisplayPassword} />
                                                         </Row>
                                                         <Row>
-                                                            <Form.Control className="edit-profile-input" size="lg" placeholder="Repeat your password" type="password"/>
+                                                            <Form.Control className="edit-profile-input" size="lg" placeholder="Repeat your password" type="password" onChange={this.handleChangeDisplayPasswordRep}/>
                                                         </Row>
                                                         
                                                     </Col>
