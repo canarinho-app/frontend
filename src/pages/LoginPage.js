@@ -51,7 +51,7 @@ class LoginPage extends Component {
         this.setState({userId : res.data.username})
         this.props.history.push({ pathname: '/home', state: { isLoggedIn: true , username: res.data.username} });
       }, error => {
-        this.props.alert.error(error.response.data.message);
+        error.response ? this.props.alert.error(error.response.data.message) : this.props.alert.error('Ops... something went wrong!');
         });
 
   }
