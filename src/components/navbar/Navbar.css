@@ -38,8 +38,9 @@ button:focus {
 
 .logo-navbar {
     width: 5vh;
+    position: absolute;
     margin-top: 5px;
-    margin-left: 14vw;
+    left: 50vw;
 }
 
 .fa-search {
@@ -51,8 +52,8 @@ button:focus {
     border-color: #fff;
     color: #fff;
     width: 200px;
-    margin-top: 12px;
-    margin-left: 5vw;
+    margin-top: 9px;
+    margin-left: 25vw;
 }
 
 .search-form:focus {
@@ -84,7 +85,7 @@ button:focus {
 
 .profile-photo-navbar {
     width: 5vh;
-    margin-top: 7px;
+    margin-top: 15px;
     margin-left: 1.8vw;
     border-radius: 50%;
     max-height: 77%;
