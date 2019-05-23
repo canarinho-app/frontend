@@ -16,7 +16,8 @@ class PostCard extends Component {
 
         this.state = {
             show: false,
-            like: { author: "" }
+            like: { author: "" },
+            comment: ""
         };
     }
 
@@ -80,7 +81,7 @@ class PostCard extends Component {
                                 </Modal>
                             </Col>
                             <Col xs="1">
-                                <i className="fas fa-star"></i>
+                                <i className="fas fa-star" onClick={() => {this.props.handleLike(this.props.tweet.id)}}></i>
                             </Col>
                             <Col xs="1">
                                 <i className="fas fa-retweet"></i>
