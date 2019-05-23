@@ -12,6 +12,7 @@ class Timeline extends Component {
         super(props);
         this.state = { tweets: [] };
         this.handleComment = this.handleComment.bind(this);
+        this.handleLike = this.handleLike.bind(this);
     }
 
     async componentDidMount() {
@@ -65,12 +66,38 @@ class Timeline extends Component {
         });
     }
 
+    async handleLike(postId) {
+        const existingPost = await Api.get(`tweet?id=${postId}`);
+        let updatedpost = {};
+        
+        if (existingPost.data.likes.includes(this.props.user._id)) {
+            updatedpost = await Api.patch(`tweet/delete?id=${postId}`, existingPost.data);
+        } else {
+            existingPost.data.likes.push(this.props.user._id);
+            updatedpost = await Api.patch(`tweet?id=${postId}`, existingPost.data);
+        }
+
+        this.setState(prevState => {
+            const updatedTweets = prevState.tweets.map(tweet => {
+                if (tweet.id === updatedpost.data.id) {
+                    tweet.likes = updatedpost.data.likes;
+                }
+
+                return tweet;
+            })
+
+            return {
+                tweets: updatedTweets
+            }
+        });
+    }
+
     render(props) {
         const tweets = [].concat(this.state.tweets)
             .sort((a, b) => a.date - b.date).reverse()
             .map(item => {
                 return (
-                    <PostCard tweet={item} key={item.id} handleComment={this.handleComment} />
+                    <PostCard tweet={item} key={item.id} handleComment={this.handleComment} handleLike={this.handleLike} />
                 );
 
             });

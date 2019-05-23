@@ -117,3 +117,11 @@
     box-shadow: none;
     border-color: #705845;
 }
+
+.fa-reply {
+    cursor: pointer;
+}
+
+.fa-star {
+    cursor: pointer;
+}
