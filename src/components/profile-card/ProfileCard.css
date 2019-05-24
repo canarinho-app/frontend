@@ -26,22 +26,6 @@
 .pro-photo {
     width: 20vh;
 }
-  
-.edit-profile-button {
-    color: #705845;
-    background-color: #fff;
-    border-color: #705845;
-}
-  
-.edit-profile-button:hover {
-    color: #705845;
-    background-color: #fff;
-    border-color: #705845;
-}
-  
-.edit-profile-button:focus {
-    box-shadow: none;
-}
 
 .pro-text {
     text-align: start;

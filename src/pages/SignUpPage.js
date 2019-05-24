@@ -29,6 +29,7 @@ class SignUpPage extends Component {
             email: "",
             password: "",
             passwordRep: "",
+            bio: "",
             isAuth: false
         }
         this.defaultImg = defaultPhoto;
@@ -51,7 +52,8 @@ class SignUpPage extends Component {
             displayname: this.state.displayname,
             username: this.state.username,
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            bio: this.state.bio
         }
 
         try {

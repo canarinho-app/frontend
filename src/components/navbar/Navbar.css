@@ -16,7 +16,7 @@ button:focus {
     font-weight: 400;
     width: 100px;
     margin-top: 16px;
-    margin-left: 23vw;
+    margin-left: 20vw;
     text-align: center;
     text-decoration: none !important;
 }
@@ -36,6 +36,10 @@ button:focus {
     text-decoration: none !important;
 }
 
+.notification-navbar:hover{
+    color: black !important;
+}
+
 .logo-navbar {
     width: 5vh;
     position: absolute;
@@ -51,9 +55,10 @@ button:focus {
     background-color: #705845;
     border-color: #fff;
     color: #fff;
-    width: 200px;
+    width: 10vw;
     margin-top: 9px;
-    margin-left: 25vw;
+    position: absolute;
+    left: 57vw;
 }
 
 .search-form:focus {
@@ -74,7 +79,8 @@ button:focus {
     font-size: 18px;
     font-weight: 400;
     margin-top: 16px;
-    margin-left: 1vw;
+    position: absolute;
+    left: 68vw;
     text-decoration: none !important;
     box-shadow: none!important; 
 }
@@ -86,7 +92,8 @@ button:focus {
 .profile-photo-navbar {
     width: 5vh;
     margin-top: 15px;
-    margin-left: 1.8vw;
+    position: absolute;
+    left: 76vw;
     border-radius: 50%;
     max-height: 77%;
 }
@@ -97,12 +104,18 @@ button:focus {
     font-family: Lato;
     font-size: 18px;
     font-weight: 400;
-    width: 121px;
+    width: 100px;
     margin-top: 16px;
+    position: absolute;
+    left: 79vw;
     text-align: center;
     text-decoration: none !important;
 }
 
 .logout-navbar{
     color:  #FFFFFF !important;
+}
+
+.logout-navbar:hover{
+    color: black !important;
 }
