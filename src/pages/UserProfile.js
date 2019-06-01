@@ -16,13 +16,15 @@ class UserProfile extends Component {
 	   this.state = {
 	   	user: []
 	   }
-	}
+    }
 
 	componentDidMount() {
-		axios.get(user_url + this.props.match.params.username).then( res => this.setState({ user: res.data}))
+        axios.get(user_url + this.props.match.params.username)
+            .then( res => this.setState({ user: res.data }))
 	}
 
 	render(props){
+        console.log(this.state.user);
 		return (
 		           <div>
                 <div className="feed-page">
@@ -31,7 +33,7 @@ class UserProfile extends Component {
                             <div className="content-box">
                                 <Row className="justify-content-md-center align-items-center no-margin login-input-box profile-info">
                                     <Col xs="4">
-                                        <Image src={this.state.user.profileImg ? `${uploads}${this.user.profileImg}` : defaultPhoto} className="profile-info-photo" alt="photo" />
+                                        <Image src={this.state.user.profileImg ? `${uploads}${this.state.user.profileImg}` : defaultPhoto} className="profile-info-photo" alt="photo" />
                                     </Col>
                                     <Col xs="5" className="profile-info-text">
                                         <Col className="no-padding displayname-text">
