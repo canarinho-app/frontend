@@ -24,9 +24,8 @@ class UserProfile extends Component {
 	}
 
 	render(props){
-        console.log(this.state.user);
 		return (
-		           <div>
+		    <div>
                 <div className="feed-page">
                     <Row className="justify-content-md-center no-margin">
                         <Col md="auto">
