@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './Navbar.css';
-import { Container, Image, ButtonToolbar, Button, Navbar, Nav, Form } from 'react-bootstrap';
+import { Container, Image, ButtonToolbar, Navbar, Nav, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import canarinho from '../../assets/images/canarinho.svg';
 import defaultPhoto from '../../assets/images/cutmypic.png';

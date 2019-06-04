@@ -91,7 +91,7 @@ button:focus {
 
 .profile-photo-navbar {
     width: 5vh;
-    margin-top: 15px;
+    margin-top: 5px;
     position: absolute;
     left: 76vw;
     border-radius: 50%;
@@ -107,7 +107,7 @@ button:focus {
     width: 100px;
     margin-top: 16px;
     position: absolute;
-    left: 79vw;
+    left: 80vw;
     text-align: center;
     text-decoration: none !important;
 }

@@ -56,7 +56,6 @@ class Feed extends Component {
 
     handleChangeDisplayPassword(event){
         this.setState({ password: event.target.value})
-        console.log(this.state.password)
     }
 
     handleChangeDisplayPasswordRep(event){
