@@ -37,9 +37,9 @@ class ProfileCard extends Component {
                                     <Col>
                                         <Row>
                                             <span className="fol-counter-number">{this.other.followers.length}</span>
-                                            <span className="fol-counter-label">Following</span>
-                                            <span className="fol-counter-number">{this.other.following.length}</span>
                                             <span className="fol-counter-label">Followers</span>
+                                            <span className="fol-counter-number">{this.other.following.length}</span>
+                                            <span className="fol-counter-label">Following</span>
                                         </Row>
                                     </Col>
                                 </Col>
