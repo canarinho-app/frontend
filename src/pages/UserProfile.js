@@ -102,12 +102,12 @@ class UserProfile extends Component {
                                         <Col>
                                             <Row>
                                                 <span className="fol-counter-number">{this.state.other.followers.length}</span>
-                                                <span className="fol-counter-label">Followers</span>
+                                                <span className="fol-counter-label">Seguidores</span>
                                                 <span className="fol-counter-number">{this.state.other.following.length}</span>
-                                                <span className="fol-counter-label">Following</span>
+                                                <span className="fol-counter-label">Seguindo</span>
                                             </Row>
                                         </Col>
-					<Button className="follow-profile-button" variant="primary" onClick={this.follow} size="lg">Follow</Button>
+					<Button className="follow-profile-button" variant="primary" onClick={this.follow} size="lg">Seguir</Button>
                                     </Col>
                                 </Row>
                                 <Timeline user={this.state.user} username={this.state.user.username} isProfileFeed={true} other={this.state.other} />

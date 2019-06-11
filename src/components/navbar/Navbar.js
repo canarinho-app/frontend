@@ -27,21 +27,21 @@ class NavbarCanarinho extends Component {
                     <Nav className="menu">
                         <ButtonToolbar>
                             <Link to={{ pathname: '/home', state: { isLoggedIn: true, username: this.props.user.username } }} className="home-navbar" variant="outline-none">
-                                Home
+                                Pagina Inicial
                             </Link>
-                            <Link className="notification-navbar" variant="outline-none">Notifications</Link>
+                            <Link className="notification-navbar" variant="outline-none">Notificações</Link>
                             <Image src={canarinho} className="logo-navbar" alt="logo" fluid />
                             <Form.Control className="search-form " type="text" onChange={this.handleChangeSearch} />
                             <Link to={{ pathname: '/search', state: {search: this.state.search, user: this.props.user} }} className="search-navbar" variant="outline-none"
                                 >
                                 <i className="fas fa-search"></i>
-                                Search
+                                Pesquisar
                             </Link>
                             <Link to={{ pathname: '/profile', state: this.props.user }}>
                                 <Image src={this.props.user.profileImg ? `${uploads}${this.props.user.profileImg}` : defaultPhoto} className="profile-photo-navbar" alt="photo" />
                             </Link>
                             <Link to={{ pathname: '/login', state: { isLoggedIn: false} }} className="logout-navbar" variant="outline-none">
-                                Logout
+                                Sair
                             </Link>
                         </ButtonToolbar>
                     </Nav>
