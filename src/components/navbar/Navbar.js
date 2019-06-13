@@ -29,7 +29,7 @@ class NavbarCanarinho extends Component {
                             <Link to={{ pathname: '/home', state: { isLoggedIn: true, username: this.props.user.username } }} className="home-navbar" variant="outline-none">
                                 Pagina Inicial
                             </Link>
-                            <Link className="notification-navbar" variant="outline-none">Notificações</Link>
+                            <Link className="notification-navbar" variant="outline-none" to="/">Notificações</Link>
                             <Image src={canarinho} className="logo-navbar" alt="logo" fluid />
                             <Form.Control className="search-form " type="text" onChange={this.handleChangeSearch} />
                             <Link to={{ pathname: '/search', state: {search: this.state.search, user: this.props.user} }} className="search-navbar" variant="outline-none"

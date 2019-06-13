@@ -13,6 +13,7 @@ class Timeline extends Component {
         this.state = { tweets: [] };
         this.handleComment = this.handleComment.bind(this);
         this.handleLike = this.handleLike.bind(this);
+        this.handleRetweet = this.handleRetweet.bind(this);
     }
 
     async componentDidMount() {
@@ -77,7 +78,7 @@ class Timeline extends Component {
         } else {
             existingPost.data.likes.push(this.props.user._id);
             updatedpost = await Api.patch(`tweet?id=${postId}`, existingPost.data);
-        }
+        }        
 
         this.setState(prevState => {
             const updatedTweets = prevState.tweets.map(tweet => {
@@ -94,12 +95,21 @@ class Timeline extends Component {
         });
     }
 
+    async handleRetweet(postId) {
+        const existingPost = await Api.get(`tweet?id=${postId}`);
+
+        existingPost.data.retweet = true;
+        this.setState({tweet:[
+            ...this.state.tweets, existingPost
+        ]});
+    }
+
     render(props) {
         const tweets = [].concat(this.state.tweets)
             .sort((a, b) => a.date - b.date).reverse()
             .map(item => {
                 return (
-                    <PostCard tweet={item} key={item.id} handleComment={this.handleComment} handleLike={this.handleLike} />
+                    <PostCard tweet={item} key={item.id} handleComment={this.handleComment} handleLike={this.handleLike} handleRetweet={this.handleRetweet} />
                 );
 
             });
