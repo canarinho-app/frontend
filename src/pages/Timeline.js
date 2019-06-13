@@ -16,7 +16,9 @@ class Timeline extends Component {
     }
 
     async componentDidMount() {
-        const userData = await axios.get('http://localhost:3001/user?username=' + this.props.username);
+        let username;
+        this.props.other ? username = this.props.other.username : username = this.props.username;
+        const userData = await axios.get('http://localhost:3001/user?username=' + username);
         const tweetsId = userData.data.tweets;
 
         tweetsId.forEach(async element => {
@@ -69,7 +71,7 @@ class Timeline extends Component {
     async handleLike(postId) {
         const existingPost = await Api.get(`tweet?id=${postId}`);
         let updatedpost = {};
-        
+
         if (existingPost.data.likes.includes(this.props.user._id)) {
             updatedpost = await Api.patch(`tweet/delete?id=${postId}`, existingPost.data);
         } else {
@@ -109,7 +111,8 @@ class Timeline extends Component {
                     <Row className="justify-content-md-center no-margin">
                         <Col md="auto">
                             <div className="content-box">
-                                {!this.props.isProfileFeed && <NewPostTimeLine user={this.props.user} />}
+                                {!this.props.isProfileFeed && !this.props.other && <NewPostTimeLine user={this.props.user} />}
+                                {!this.props.isProfileFeed  && this.props.other && <NewPostTimeLine user={this.props.other} />}
                                 {tweets}
                             </div>
                         </Col>

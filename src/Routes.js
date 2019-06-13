@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignUpPage';
 import Feed from './pages/Feed'
 import SearchPage from './pages/SearchPage';
+import UserProfile from './pages/UserProfile';
 
 export default props => (
     <Switch>
@@ -14,6 +15,7 @@ export default props => (
         <Route path='/signup' component={SignupPage}/>
         <Route path= '/profile' component={Feed}/>
         <Route path='/search' component={SearchPage}/>
-        <Redirect from='*' to='/login'/>
+        <Route path='/user-profile/:username' component={UserProfile}/>
+	<Redirect from='*' to='/login'/>
     </Switch>
 );
