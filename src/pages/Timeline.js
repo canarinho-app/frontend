@@ -25,9 +25,10 @@ class Timeline extends Component {
         tweetsId.forEach(async element => {
             const tempTweet = await axios.get('http://localhost:3001/tweet?id=' + element);
             const tweetContent = await axios.get('http://localhost:3001/content?id=' + tempTweet.data.content);
+            const tempAuthor = await axios.get('http://localhost:3001/userId?id=' + tempTweet.data.author);
 
             let tweet = tempTweet.data;
-            tweet.author = userData.data;
+            tweet.author = tempAuthor.data;
             tweet.content = tweetContent.data;
 
             if (!tweet.isResposne) {
@@ -78,7 +79,7 @@ class Timeline extends Component {
         } else {
             existingPost.data.likes.push(this.props.user._id);
             updatedpost = await Api.patch(`tweet?id=${postId}`, existingPost.data);
-        }        
+        }
 
         this.setState(prevState => {
             const updatedTweets = prevState.tweets.map(tweet => {
@@ -96,12 +97,15 @@ class Timeline extends Component {
     }
 
     async handleRetweet(postId) {
+        const user = await axios.get('http://localhost:3001/user?username=' + this.props.username);
+        const userData = user.data;
         const existingPost = await Api.get(`tweet?id=${postId}`);
 
         existingPost.data.retweet = true;
-        this.setState({tweet:[
-            ...this.state.tweets, existingPost
-        ]});
+
+        userData.tweets.push(existingPost.data.id)
+
+        await Api.patch(`user?username=${this.props.username}`, userData);
     }
 
     render(props) {
@@ -122,7 +126,7 @@ class Timeline extends Component {
                         <Col md="auto">
                             <div className="content-box">
                                 {!this.props.isProfileFeed && !this.props.other && <NewPostTimeLine user={this.props.user} />}
-                                {!this.props.isProfileFeed  && this.props.other && <NewPostTimeLine user={this.props.other} />}
+                                {!this.props.isProfileFeed && this.props.other && <NewPostTimeLine user={this.props.other} />}
                                 {tweets}
                             </div>
                         </Col>
