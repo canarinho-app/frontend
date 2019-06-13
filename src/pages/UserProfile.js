@@ -5,6 +5,7 @@ import defaultPhoto from './../assets/images/cutmypic.png';
 import Timeline from '../pages/Timeline';
 import axios from "axios";
 import { Api } from './../service/Api.js';
+import _ from "lodash";
 
 const user_url = 'http://localhost:3001/user?username=';
 const uploads = 'http://localhost:3001/uploads/';
@@ -23,12 +24,13 @@ class UserProfile extends Component {
                 profileImg: '',
                 email: '',
                 username: this.props.match.params.username,
-            	bio: '',
-		description: '',
-		followers: [],
-		following: [],
-		tweets: []
-	    }
+                bio: '',
+                description: '',
+                followers: [],
+                following: [],
+                tweets: []
+                , prevUser: ''
+            }
         }
     }
 
@@ -37,45 +39,52 @@ class UserProfile extends Component {
         axios.get(url)
             .then(res => this.setState({ other: res.data }))
     }
-    
+
     componentDidUpdate() {
-        const url = user_url + this.state.other.username;
-        axios.get(url)
-            .then(res => this.setState({ other: res.data }))
+        if (!_.isEqual(this.state.other, this.state.prevUser)) {
+            const url = user_url + this.state.other.username;
+            axios.get(url)
+                .then(res => {
+                    this.setState({ other: res.data })
+                    this.setState({ prevUser: res.data });
+                })
+        }
+
     }
 
     follow = async () => {
-    	try {
+        try {
             // Get Updated user
-	    let updatedUser = await Api.get(`user?username=${this.state.user.username}`);
+            let updatedUser = await Api.get(`user?username=${this.state.user.username}`);
             updatedUser = updatedUser.data;
-	    // Get Updated Profile
-	    let updatedOther = await Api.get(`user?username=${this.state.other.username}`);
-	    updatedOther = updatedOther.data;
+            // Get Updated Profile
+            let updatedOther = await Api.get(`user?username=${this.state.other.username}`);
+            updatedOther = updatedOther.data;
 
-	    // Check if user already follow profile
-	    var index = updatedUser.following.indexOf(updatedOther._id)
-	    // Remove 
-	    if (index !== -1){
-		    updatedUser.following.splice(0, 1);
-		    var other_index = updatedOther.followers.indexOf(updatedUser._id);
-		    updatedOther.followers.splice(other_index, 1);
-	    }
-	    // Add to following/ followers list
-	    else{
-	    	updatedUser.following.push(updatedOther._id);
-	    	updatedOther.followers.push(updatedUser._id);
-	    }
-	    
-	    // Update user / profile
-	    await Api.patch(`user?username=${this.state.user.username}`, updatedUser);
-	    await Api.patch(`user?username=${this.state.other.username}`, updatedOther);
-	    this.state.user = updatedUser
-	}
-	catch (error) {
-	    error.response.data.message ? this.props.alert.error(error.response.data.message) :
-	    this.props.alert.error('Ops... something went wrong!')
-	}
+            // Check if user already follow profile
+            var index = updatedUser.following.indexOf(updatedOther._id)
+            // Remove 
+            if (index !== -1) {
+                updatedUser.following.splice(0, 1);
+                var other_index = updatedOther.followers.indexOf(updatedUser._id);
+                updatedOther.followers.splice(other_index, 1);
+            }
+            // Add to following/ followers list
+            else {
+                updatedUser.following.push(updatedOther._id);
+                updatedOther.followers.push(updatedUser._id);
+            }
+
+            // Update user / profile
+            await Api.patch(`user?username=${this.state.user.username}`, updatedUser);
+            updatedOther = await Api.patch(`user?username=${this.state.other.username}`, updatedOther);
+            this.state.user = updatedUser;
+            this.setState({ other: updatedOther.data });
+        }
+        catch (error) {
+            error.response.data.message ? this.props.alert.error(error.response.data.message) :
+                this.props.alert.error('Ops... something went wrong!')
+        }
     }
 
     render(props) {
@@ -107,7 +116,7 @@ class UserProfile extends Component {
                                                 <span className="fol-counter-label">Seguindo</span>
                                             </Row>
                                         </Col>
-					<Button className="follow-profile-button" variant="primary" onClick={this.follow} size="lg">Seguir</Button>
+                                        <Button className="follow-profile-button" variant="primary" onClick={this.follow} size="lg">Seguir</Button>
                                     </Col>
                                 </Row>
                                 <Timeline user={this.state.user} username={this.state.user.username} isProfileFeed={true} other={this.state.other} />
