@@ -84,7 +84,7 @@ class PostCard extends Component {
                                 <i className="fas fa-star" onClick={() => {this.props.handleLike(this.props.tweet.id)}}></i>
                             </Col>
                             <Col xs="1">
-                                <i className="fas fa-retweet"></i>
+                                <i className="fas fa-retweet" onClick={() => {this.props.handleRetweet(this.props.tweet.id)}}></i>
                             </Col>
                         </Row>
                     </Col>

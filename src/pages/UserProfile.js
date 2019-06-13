@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './Feed.css';
-import { Button, Image, Row, Col, Modal, Form } from 'react-bootstrap';
+import { Button, Image, Row, Col} from 'react-bootstrap';
 import defaultPhoto from './../assets/images/cutmypic.png';
 import Timeline from '../pages/Timeline';
 import axios from "axios";
@@ -34,9 +34,10 @@ class UserProfile extends Component {
         }
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+        // this.axiosCancelSource = axios.CancelToken.source();
         const url = user_url + this.state.other.username;
-        axios.get(url)
+        await axios.get(url)
             .then(res => this.setState({ other: res.data }))
     }
 
@@ -51,6 +52,10 @@ class UserProfile extends Component {
         }
 
     }
+
+    // componentWillUnmount() {
+    //     this.axiosCancelSource.cancel('Component unmounted.');
+    // }
 
     follow = async () => {
         try {

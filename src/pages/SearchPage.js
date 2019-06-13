@@ -12,7 +12,6 @@ class SearchPage extends Component {
         this.state = {
             users: []
         }
-        console.log(this.user)
     }
 
     componentDidMount() {
