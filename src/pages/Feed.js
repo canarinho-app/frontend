@@ -56,7 +56,6 @@ class Feed extends Component {
 
     handleChangeDisplayPassword(event){
         this.setState({ password: event.target.value})
-        console.log(this.state.password)
     }
 
     handleChangeDisplayPasswordRep(event){
@@ -89,9 +88,9 @@ class Feed extends Component {
                                         <Col>
                                             <Row>
                                                 <span className="fol-counter-number">{this.user.followers.length}</span>
-                                                <span className="fol-counter-label">Following</span>
+                                                <span className="fol-counter-label">Seguidores</span>
                                                 <span className="fol-counter-number">{this.user.following.length}</span>
-                                                <span className="fol-counter-label">Followers</span>
+                                                <span className="fol-counter-label">Seguindo</span>
                                             </Row>
                                         </Col>
                                     </Col>

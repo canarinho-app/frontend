@@ -3,7 +3,6 @@ import axios from "axios";
 import './SearchPage.css';
 import Navbar from '../components/navbar/Navbar';
 import ProfileCard from '../components/profile-card/ProfileCard';
-import { equal } from "assert";
 
 class SearchPage extends Component {
     constructor(props) {
@@ -13,6 +12,7 @@ class SearchPage extends Component {
         this.state = {
             users: []
         }
+        console.log(this.user)
     }
 
     componentDidMount() {
@@ -34,7 +34,7 @@ class SearchPage extends Component {
             <div>
               <Navbar user={this.user}/>
               {this.state.users
-                .map(item => <ProfileCard user={item}/>)}
+                .map(item => <ProfileCard user={this.user} other={item} key={item._id}/>)}
             </div>
         );
     }
