@@ -3,11 +3,11 @@ import './Footer.css';
 
 const Footer = () => {
     return(
-        <div className="Footer">
+        <footer className="Footer">
           <div className="Footer-text">
             © 2019 Canarinho
           </div>
-        </div>
+        </footer>
       );
 }
 

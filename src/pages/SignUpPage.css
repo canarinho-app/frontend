@@ -15,6 +15,7 @@
     padding-top: 24vh;
 }
 
+
 .signup-logo-title {
     color: #FFFFFF;
     font-family: 'Lato', sans-serif;
@@ -28,12 +29,12 @@
     font-size: 50px;
     font-weight: 700;
     line-height: 50px;
-    padding-top: 65px;
+    padding-top: 30px;
 }
 
 .profile-photo {
-    width: 191px;
-    height: 191px;
+    width: 150px;
+    height: 150px;
     margin-top: 40px;
 }
 

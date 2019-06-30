@@ -119,7 +119,7 @@ class SignUpPage extends Component {
                             </div>
                         </div>
 
-                        <Form>
+                        <Form >
                             <Row className="justify-content-md-center no-margin signup-input-box">
 
                                 <Form.Control className="signup-input" size="lg" placeholder="Username" onChange={this.handleInputChange("username")} />
