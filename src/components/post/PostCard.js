@@ -21,6 +21,9 @@ class PostCard extends Component {
         };
     }
 
+    componentDidMount() {        
+    }
+
     handleInputChange = property => event => {
         this.setState({ ...this.state, [property]: event.target.value });
     }

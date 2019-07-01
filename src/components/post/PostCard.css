@@ -126,6 +126,14 @@
     cursor: pointer;
 }
 
+.fa-star:active {
+    color: #F3804B;   
+}
+
 .fa-retweet {
     cursor: pointer;
+}
+
+.fa-retweet:active {
+    color: #F3804B;
 }

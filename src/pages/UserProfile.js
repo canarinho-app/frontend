@@ -28,14 +28,13 @@ class UserProfile extends Component {
                 description: '',
                 followers: [],
                 following: [],
-                tweets: []
-                , prevUser: ''
+                tweets: [],
+                prevUser: ''
             }
         }
     }
 
     async componentDidMount() {
-        // this.axiosCancelSource = axios.CancelToken.source();
         const url = user_url + this.state.other.username;
         await axios.get(url)
             .then(res => this.setState({ other: res.data }))
@@ -52,10 +51,6 @@ class UserProfile extends Component {
         }
 
     }
-
-    // componentWillUnmount() {
-    //     this.axiosCancelSource.cancel('Component unmounted.');
-    // }
 
     follow = async () => {
         try {
