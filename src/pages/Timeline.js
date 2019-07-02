@@ -39,32 +39,36 @@ class Timeline extends Component {
             }
         });
 
-        const following = userData.data.following;        
 
-        following.forEach(async element => {
-            let followingData = await axios.get('http://localhost:3001/userId?id=' + element);
-            let followingTweets = followingData.data.tweets;            
+        /* Only will request the user following tweets if the user isn't on profile page.   
+        */
+        if (!this.props.isProfileFeed) {
+            const following = userData.data.following;
 
-            followingTweets.forEach(async ftweet => {
-                const tempTweet = await axios.get('http://localhost:3001/tweet?id=' + ftweet);
-                const tweetContent = await axios.get('http://localhost:3001/content?id=' + tempTweet.data.content);
-                const tempAuthor = await axios.get('http://localhost:3001/userId?id=' + tempTweet.data.author);
+            following.forEach(async element => {
+                let followingData = await axios.get('http://localhost:3001/userId?id=' + element);
+                let followingTweets = followingData.data.tweets;
 
-                let tweet = tempTweet.data;
-                tweet.author = tempAuthor.data;
-                tweet.content = tweetContent.data;
-                
-                
-                if (!tweet.isResponse) {
-                    this.setState({
-                        tweets: [...this.state.tweets, tweet]
+                followingTweets.forEach(async ftweet => {
+                    const tempTweet = await axios.get('http://localhost:3001/tweet?id=' + ftweet);
+                    const tweetContent = await axios.get('http://localhost:3001/content?id=' + tempTweet.data.content);
+                    const tempAuthor = await axios.get('http://localhost:3001/userId?id=' + tempTweet.data.author);
 
-                    });
-                }
-            })
+                    let tweet = tempTweet.data;
+                    tweet.author = tempAuthor.data;
+                    tweet.content = tweetContent.data;
 
-        });        
-        
+
+                    if (!tweet.isResponse) {
+                        this.setState({
+                            tweets: [...this.state.tweets, tweet]
+
+                        });
+                    }
+                })
+
+            });
+        }
     }
 
     async handleComment(comment, postId) {
@@ -126,23 +130,23 @@ class Timeline extends Component {
     async handleRetweet(postId) {
         const user = await axios.get('http://localhost:3001/user?username=' + this.props.username);
         const userData = user.data;
-        const existingPost = await Api.get(`tweet?id=${postId}`);        
+        const existingPost = await Api.get(`tweet?id=${postId}`);
 
         existingPost.data.retweet = true;
 
-        userData.tweets.push(existingPost.data.id)        
+        userData.tweets.push(existingPost.data.id)
 
         await Api.patch(`user?username=${this.props.username}`, userData);
     }
 
     render(props) {
         const tweets = [].concat(this.state.tweets)
+            .filter((element, id) => id === this.state.tweets.findIndex(ele => element.id === ele.id))
             .sort((a, b) => a.date - b.date).reverse()
             .map(item => {
                 return (
                     <PostCard tweet={item} key={item.id} handleComment={this.handleComment} handleLike={this.handleLike} handleRetweet={this.handleRetweet} />
                 );
-
             });
 
         return (
