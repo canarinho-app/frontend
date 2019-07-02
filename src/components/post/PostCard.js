@@ -56,7 +56,11 @@ class PostCard extends Component {
                         </Row>
                         <Row className="no-margin postcard-footer">
                             <Col xs="9" className="postcard-footer-counter">
-                                {this.props.tweet.likes.length} Likes and {this.props.tweet.comments.length} comments
+                                {this.props.tweet.likes.length} 
+                                {this.props.tweet.likes.length !== 1 ? " Curtidas e ": " Curtida e "} 
+                                
+                                {this.props.tweet.comments.length} 
+                                {this.props.tweet.comments.length !== 1 ? " Comentários":" Comentário"} 
                             </Col>
                             <Col xs="1">
                                 <i className="fas fa-reply" onClick={this.handleShow}></i>
